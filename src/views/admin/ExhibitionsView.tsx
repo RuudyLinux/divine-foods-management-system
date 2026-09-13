@@ -207,6 +207,14 @@ export const ExhibitionsView: React.FC = () => {
     refreshList();
   };
 
+  // Start Exhibition: marks the stall as trading today.
+  const handleStartExhibition = () => {
+    if (!selectedExhibition) return;
+    db.updateExhibition(selectedExhibition.id, { status: 'ACTIVE' });
+    success(`"${selectedExhibition.name}" is now active. Staff can bill against this stall.`);
+    refreshList();
+  };
+
   // Close Exhibition
   const handleConfirmCloseExhibition = () => {
     if (!selectedExhibition) return;
@@ -534,6 +542,16 @@ export const ExhibitionsView: React.FC = () => {
                   <DollarSign className="w-3.5 h-3.5 text-[#D97706]" />
                   <span>Add Expense</span>
                 </button>
+                {(selectedExhibition.status === 'UPCOMING' ||
+                  selectedExhibition.status === 'PLANNED') && (
+                  <button
+                    type="button"
+                    onClick={handleStartExhibition}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 hover:bg-emerald-100"
+                  >
+                    <span>Start Exhibition</span>
+                  </button>
+                )}
                 {selectedExhibition.status !== 'COMPLETED' && (
                   <button
                     type="button"

@@ -286,6 +286,8 @@ class DatabaseService {
   public getExhibitions(): Exhibition[] {
     return this.state.exhibitions.map(e => ({
       ...e,
+      // Older records used PLANNED for what is now UPCOMING.
+      status: e.status === 'PLANNED' ? 'UPCOMING' : e.status,
       city: e.city || e.venue?.split(',')[1]?.trim() || e.address?.split(',')[1]?.trim() || 'Gujarat',
       location: e.location || e.venue || e.address || 'Exhibition Venue',
       assigned_user_id: e.assigned_user_id || 'usr_exhibition_vadodara',
@@ -734,7 +736,9 @@ class DatabaseService {
   }
 
   public createExhibition(data: any): Exhibition {
-    const status = data.status === 'UPCOMING' ? 'PLANNED' : data.status || 'PLANNED';
+    // UPCOMING is the term the rest of the app uses for an exhibition that has
+    // not started; PLANNED is an older spelling kept only for stored records.
+    const status = data.status === 'PLANNED' ? 'UPCOMING' : data.status || 'UPCOMING';
     return this.addExhibition({
       name: data.name,
       start_date: data.start_date,
@@ -855,10 +859,28 @@ class DatabaseService {
     userName: string
   ): ExhibitionAllocation {
     const prod = this.state.products.find(p => p.id === productId);
+
+    // The cost carried into the allocation becomes the sale's recorded cost of
+    // goods, so it decides reported profit. Use what the goods actually cost:
+    // the most recent production batch for this product, else the cost of the
+    // last allocation. Half the selling price is only a last resort for a
+    // product that has never been produced or allocated.
+    const latestProduction = this.state.productionItems
+      .filter(i => i.product_id === productId)
+      .map(item => {
+        const batch = this.state.productionBatches.find(b => b.id === item.production_batch_id);
+        return { cost: item.cost_per_unit, at: batch?.created_at || batch?.production_date || '' };
+      })
+      .sort((a, b) => new Date(b.at).getTime() - new Date(a.at).getTime())[0];
+
     const latestAlloc = this.state.exhibitionAllocations
       .filter(a => a.product_id === productId)
       .sort((a, b) => new Date(b.allocated_at).getTime() - new Date(a.allocated_at).getTime())[0];
-    const cost = latestAlloc ? latestAlloc.cost_per_unit : Math.round((prod?.default_selling_price || 200) * 0.5);
+
+    const cost =
+      latestProduction?.cost ??
+      latestAlloc?.cost_per_unit ??
+      Math.round((prod?.default_selling_price || 200) * 0.5);
     const res = this.allocateStockToExhibition(
       exhibitionId,
       [{ product_id: productId, quantity, cost_per_unit: cost }],
