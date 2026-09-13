@@ -1,0 +1,6 @@
+{
+  "name": "Divine Foods Management System",
+  "description": "Production, Inventory, Exhibition & POS Management System for Divine Foods",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
