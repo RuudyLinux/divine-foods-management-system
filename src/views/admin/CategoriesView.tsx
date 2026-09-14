@@ -5,6 +5,9 @@ import { Category } from '../../types';
 import { formatDate } from '../../lib/brand';
 import { StatusBadge } from '../../components/common/StatusBadge';
 import { Modal } from '../../components/common/Modal';
+import { PageHeader } from '../../components/common/PageHeader';
+import { Button } from '../../components/common/Button';
+import { IconButton } from '../../components/common/IconButton';
 import { ConfirmationDialog } from '../../components/common/ConfirmationDialog';
 import { useToast } from '../../components/common/Toast';
 
@@ -105,27 +108,16 @@ export const CategoriesView: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
-            Catalog Hierarchy
-          </span>
-          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
-            Categories
-          </h1>
-          <p className="text-xs text-stone-500 mt-1">
-            Organize product lines into high-level culinary and retail categories.
-          </p>
-        </div>
-        <button
-          onClick={handleOpenAdd}
-          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors cursor-pointer"
-        >
-          <Plus className="w-4 h-4" />
-          <span>Add Category</span>
-        </button>
-      </div>
+      <PageHeader
+        eyebrow="Catalog Hierarchy"
+        title="Categories"
+        description="Organize product lines into high-level culinary and retail categories."
+        actions={
+          <Button onClick={handleOpenAdd} leadingIcon={<Plus className="w-4 h-4" />}>
+            Add Category
+          </Button>
+        }
+      />
 
       {/* Table Container */}
       <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs overflow-hidden">
@@ -203,38 +195,34 @@ export const CategoriesView: React.FC = () => {
                       </td>
                       <td className="py-3.5 px-4 text-right">
                         <div className="flex items-center justify-end gap-1.5">
-                          <button
-                            type="button"
-                            onClick={() => handleToggleStatus(cat)}
-                            title={cat.is_active ? 'Deactivate' : 'Activate'}
-                            className={`p-1.5 rounded-lg border transition-colors ${
+                          <IconButton
+                            label={
                               cat.is_active
-                                ? 'text-stone-400 hover:text-amber-700 hover:bg-amber-50 border-stone-200'
-                                : 'text-emerald-700 bg-emerald-50 border-emerald-200'
-                            }`}
+                                ? `Deactivate ${cat.name}`
+                                : `Activate ${cat.name}`
+                            }
+                            tone={cat.is_active ? 'warning' : 'success'}
+                            onClick={() => handleToggleStatus(cat)}
                           >
                             {cat.is_active ? (
                               <XCircle className="w-4 h-4" />
                             ) : (
                               <CheckCircle2 className="w-4 h-4" />
                             )}
-                          </button>
-                          <button
-                            type="button"
+                          </IconButton>
+                          <IconButton
+                            label={`Edit ${cat.name}`}
                             onClick={() => handleOpenEdit(cat)}
-                            className="p-1.5 rounded-lg border border-stone-200 text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors"
-                            title="Edit"
                           >
                             <Edit2 className="w-4 h-4" />
-                          </button>
-                          <button
-                            type="button"
+                          </IconButton>
+                          <IconButton
+                            label={`Delete ${cat.name}`}
+                            tone="danger"
                             onClick={() => setDeletingId(cat.id)}
-                            className="p-1.5 rounded-lg border border-stone-200 text-stone-400 hover:text-rose-600 hover:bg-rose-50 transition-colors"
-                            title="Delete"
                           >
                             <Trash2 className="w-4 h-4" />
-                          </button>
+                          </IconButton>
                         </div>
                       </td>
                     </tr>
@@ -311,20 +299,13 @@ export const CategoriesView: React.FC = () => {
             </label>
           </div>
 
-          <div className="mt-6 flex items-center justify-end gap-3 pt-4 border-t border-stone-100">
-            <button
-              type="button"
-              onClick={() => setIsAddModalOpen(false)}
-              className="px-4 py-2 rounded-xl text-xs font-medium text-stone-600 bg-stone-100 hover:bg-stone-200 transition-colors"
-            >
+          <div className="mt-6 flex items-center justify-end gap-3 border-t border-[#E8DED2] pt-4">
+            <Button variant="secondary" size="sm" onClick={() => setIsAddModalOpen(false)}>
               Cancel
-            </button>
-            <button
-              type="submit"
-              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors"
-            >
+            </Button>
+            <Button type="submit" size="sm">
               {editingCategory ? 'Update Category' : 'Save Category'}
-            </button>
+            </Button>
           </div>
         </form>
       </Modal>

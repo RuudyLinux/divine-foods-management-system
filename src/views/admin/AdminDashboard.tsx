@@ -29,6 +29,8 @@ import {
 import { db } from '../../lib/db';
 import { formatINR, BRAND_COLORS } from '../../lib/brand';
 import { StatCard } from '../../components/common/StatCard';
+import { PageHeader } from '../../components/common/PageHeader';
+import { Button } from '../../components/common/Button';
 import { StatusBadge } from '../../components/common/StatusBadge';
 
 interface AdminDashboardProps {
@@ -169,6 +171,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
       categoryRevenue.set(name, (categoryRevenue.get(name) || 0) + item.total_amount);
     }
   }
+  const categoryRevenueTotal = [...categoryRevenue.values()].reduce((sum, v) => sum + v, 0);
   const categoryData = [...categoryRevenue.entries()]
     .sort((a, b) => b[1] - a[1])
     .map(([name, value], index) => ({
@@ -209,35 +212,29 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
 
   return (
     <div className="space-y-6 animate-in fade-in duration-150">
-      {/* Welcome Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
-            Executive Cockpit
-          </span>
-          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
-            Good Morning, Admin
-          </h1>
-          <p className="text-xs text-stone-500 mt-1">
-            Here's your Divine Foods business overview, active exhibitions, and production health.
-          </p>
-        </div>
-        <div className="flex items-center gap-2.5">
-          <button
-            onClick={() => onNavigate('production')}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] transition-colors shadow-xs"
-          >
-            <Factory className="w-3.5 h-3.5" />
-            <span>+ New Production</span>
-          </button>
-          <button
-            onClick={() => onNavigate('new-sale')}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-[#2D1F1E] bg-[#2D1F1E]/10 hover:bg-[#2D1F1E]/20 border border-[#2D1F1E]/20 transition-colors"
-          >
-            <span>POS New Sale</span>
-          </button>
-        </div>
-      </div>
+      <PageHeader
+        eyebrow="Executive Cockpit"
+        title="Dashboard"
+        description="Business overview, active exhibitions and production health."
+        actions={
+          <>
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={() => onNavigate('new-sale')}
+            >
+              POS New Sale
+            </Button>
+            <Button
+              size="sm"
+              onClick={() => onNavigate('production')}
+              leadingIcon={<Factory className="w-3.5 h-3.5" />}
+            >
+              New Production
+            </Button>
+          </>
+        }
+      />
 
       {/* 6 High-Impact KPI Cards specified in Prompt */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-4">
@@ -387,25 +384,34 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
                       <Cell key={`cell-${index}`} fill={entry.color} />
                     ))}
                   </Pie>
-                  <Tooltip formatter={(val: number) => [`${val}%`, 'Share']} />
+                  <Tooltip formatter={(val: number) => [formatINR(val), 'Revenue']} />
                 </PieChart>
               </ResponsiveContainer>
             </div>
           </div>
 
-          <div className="space-y-2 pt-3 border-t border-stone-100">
-            {categoryData.map(item => (
-              <div key={item.name} className="flex items-center justify-between text-xs">
-                <div className="flex items-center gap-2">
-                  <span
-                    className="w-2.5 h-2.5 rounded-full"
-                    style={{ backgroundColor: item.color }}
-                  />
-                  <span className="text-stone-700 font-medium">{item.name}</span>
+          <div className="space-y-2 border-t border-[#E8DED2] pt-3">
+            {categoryData.map(item => {
+              const share = categoryRevenueTotal > 0 ? (item.value / categoryRevenueTotal) * 100 : 0;
+              return (
+                <div key={item.name} className="flex items-center justify-between gap-3 text-xs">
+                  <div className="flex min-w-0 items-center gap-2">
+                    <span
+                      className="h-2.5 w-2.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: item.color }}
+                      aria-hidden="true"
+                    />
+                    <span className="truncate font-medium text-[#2D2523]">{item.name}</span>
+                  </div>
+                  <span className="shrink-0 font-semibold text-[#2D2523]">
+                    {formatINR(item.value)}
+                    <span className="ml-1.5 font-normal text-[#756B66]">
+                      {share.toFixed(0)}%
+                    </span>
+                  </span>
                 </div>
-                <span className="font-bold text-stone-900">{item.value}%</span>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

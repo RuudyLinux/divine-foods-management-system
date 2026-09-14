@@ -30,6 +30,7 @@ import {
 } from '../../types';
 import { formatINR, formatDate, formatDateTime } from '../../lib/brand';
 import { StatusBadge } from '../../components/common/StatusBadge';
+import { PageHeader } from '../../components/common/PageHeader';
 import { Modal } from '../../components/common/Modal';
 import { ConfirmationDialog } from '../../components/common/ConfirmationDialog';
 import { useAuth } from '../../context/AuthContext';
@@ -240,26 +241,22 @@ export const ExhibitionsView: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
-            Pop-up Venues & Expos
-          </span>
-          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
-            Exhibitions Management
-          </h1>
-          <p className="text-xs text-stone-500 mt-1">
-            Dispatch stock to food expos, track real-time stall sales, allocate costs, and calculate net venue profit.
-          </p>
-        </div>
-        <button
+      <PageHeader
+        eyebrow="Pop-up Venues & Expos"
+        title="Exhibitions Management"
+        description="Dispatch stock to food expos, track real-time stall sales, allocate costs, and calculate net venue profit."
+        actions={
+          <>
+          <button
           onClick={handleOpenAdd}
           className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors cursor-pointer"
-        >
+          >
           <Plus className="w-4 h-4" />
           <span>+ Create Exhibition</span>
-        </button>
-      </div>
+          </button>
+          </>
+        }
+      />
 
       {/* Tabs for Exhibition Status */}
       <div className="flex items-center gap-2 border-b border-stone-200 pb-2">

@@ -19,6 +19,7 @@ import { prepareImageForStorage, formatBytes, ACCEPTED_IMAGE_TYPES } from '../..
 import { describePasswordProblem, MIN_PASSWORD_LENGTH } from '../../lib/auth';
 import { useAuth } from '../../context/AuthContext';
 import { useToast } from '../../components/common/Toast';
+import { PageHeader } from '../../components/common/PageHeader';
 import { ConfirmationDialog } from '../../components/common/ConfirmationDialog';
 import { PasswordInput } from '../../components/common/PasswordInput';
 
@@ -190,20 +191,11 @@ export const SettingsView: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
-            Configuration & Backups
-          </span>
-          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
-            System Settings
-          </h1>
-          <p className="text-xs text-stone-500 mt-1">
-            Company branding, invoice tax details, data export, and disaster recovery.
-          </p>
-        </div>
-      </div>
+      <PageHeader
+        eyebrow="Configuration & Backups"
+        title="System Settings"
+        description="Company branding, invoice details, data export and recovery."
+      />
 
       {/* Your Password */}
       <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs p-6">

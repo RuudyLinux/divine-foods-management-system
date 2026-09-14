@@ -15,6 +15,7 @@ import { db } from '../../lib/db';
 import { DayClosing, Exhibition } from '../../types';
 import { formatINR, formatDate, formatDateTime } from '../../lib/brand';
 import { StatusBadge } from '../../components/common/StatusBadge';
+import { PageHeader } from '../../components/common/PageHeader';
 import { useAuth } from '../../context/AuthContext';
 import { useToast } from '../../components/common/Toast';
 import { Modal } from '../../components/common/Modal';
@@ -72,19 +73,11 @@ export const DayClosingView: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
-            Reconciliation & Drawer Audit
-          </span>
-          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
-            Day Closing & Cash Reconciliation
-          </h1>
-          <p className="text-xs text-stone-500 mt-1">
-            Reconcile daily POS collection, verify physical cash against digital registers, and seal the daily ledger.
-          </p>
-        </div>
-      </div>
+      <PageHeader
+        eyebrow="Reconciliation & Drawer Audit"
+        title="Day Closing & Cash Reconciliation"
+        description="Reconcile daily POS collection, verify physical cash against digital registers, and seal the daily ledger."
+      />
 
       {/* Main Reconciliation Card */}
       <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs p-6 space-y-6">

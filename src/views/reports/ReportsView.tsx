@@ -30,6 +30,7 @@ import {
 import { db } from '../../lib/db';
 import { formatINR, formatDate, BRAND_COLORS } from '../../lib/brand';
 import { StatCard } from '../../components/common/StatCard';
+import { PageHeader } from '../../components/common/PageHeader';
 import { useToast } from '../../components/common/Toast';
 
 export const ReportsView: React.FC = () => {
@@ -121,26 +122,22 @@ export const ReportsView: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
-            Business Intelligence & Financials
-          </span>
-          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
-            Reports & Analytics
-          </h1>
-          <p className="text-xs text-stone-500 mt-1">
-            Audited Profit & Loss (P&L), venue performance matrices, COGS recovery, and sales metrics.
-          </p>
-        </div>
-        <button
+      <PageHeader
+        eyebrow="Business Intelligence & Financials"
+        title="Reports & Analytics"
+        description="Audited Profit & Loss (P&L), venue performance matrices, COGS recovery, and sales metrics."
+        actions={
+          <>
+          <button
           onClick={handleExportPnL}
           className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors cursor-pointer"
-        >
+          >
           <Download className="w-3.5 h-3.5" />
           <span>Export P&L Report</span>
-        </button>
-      </div>
+          </button>
+          </>
+        }
+      />
 
       {/* Tabs */}
       <div className="flex items-center gap-2 border-b border-stone-200 pb-2 overflow-x-auto text-xs font-bold">

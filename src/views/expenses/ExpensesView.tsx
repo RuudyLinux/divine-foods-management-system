@@ -23,6 +23,7 @@ import { db } from '../../lib/db';
 import { Expense, ExpenseCategory, PaymentMethod, Exhibition } from '../../types';
 import { formatINR, formatDate } from '../../lib/brand';
 import { StatCard } from '../../components/common/StatCard';
+import { PageHeader } from '../../components/common/PageHeader';
 import { Modal } from '../../components/common/Modal';
 import { useAuth } from '../../context/AuthContext';
 import { useToast } from '../../components/common/Toast';
@@ -143,26 +144,22 @@ export const ExpensesView: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
-            Cost & Overhead Ledger
-          </span>
-          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
-            Expenses Management
-          </h1>
-          <p className="text-xs text-stone-500 mt-1">
-            Track stall bookings, logistics, food & beverages, packaging materials, and general operating costs.
-          </p>
-        </div>
-        <button
+      <PageHeader
+        eyebrow="Cost & Overhead Ledger"
+        title="Expenses Management"
+        description="Track stall bookings, logistics, food & beverages, packaging materials, and general operating costs."
+        actions={
+          <>
+          <button
           onClick={handleOpenAdd}
           className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors cursor-pointer"
-        >
+          >
           <Plus className="w-4 h-4" />
           <span>+ Add Expense</span>
-        </button>
-      </div>
+          </button>
+          </>
+        }
+      />
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

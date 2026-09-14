@@ -5,6 +5,8 @@ import { SubCategory, Category } from '../../types';
 import { formatDate } from '../../lib/brand';
 import { StatusBadge } from '../../components/common/StatusBadge';
 import { Modal } from '../../components/common/Modal';
+import { PageHeader } from '../../components/common/PageHeader';
+import { Button } from '../../components/common/Button';
 import { ConfirmationDialog } from '../../components/common/ConfirmationDialog';
 import { useToast } from '../../components/common/Toast';
 
@@ -113,27 +115,16 @@ export const SubCategoriesView: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
-            Product Taxonomy
-          </span>
-          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
-            Sub Categories
-          </h1>
-          <p className="text-xs text-stone-500 mt-1">
-            Group products by style, regional preparation, or product type (e.g. Punjabi, Brownie, Makhana).
-          </p>
-        </div>
-        <button
-          onClick={handleOpenAdd}
-          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors cursor-pointer"
-        >
-          <Plus className="w-4 h-4" />
-          <span>Add Sub Category</span>
-        </button>
-      </div>
+      <PageHeader
+        eyebrow="Product Taxonomy"
+        title="Sub Categories"
+        description="Group products by style, regional preparation or product type."
+        actions={
+          <Button onClick={handleOpenAdd} leadingIcon={<Plus className="w-4 h-4" />}>
+            Add Sub Category
+          </Button>
+        }
+      />
 
       {/* Main Table Card */}
       <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs overflow-hidden">

@@ -21,6 +21,8 @@ import { Product, Category, SubCategory, WeightUnit } from '../../types';
 import { formatINR } from '../../lib/brand';
 import { StatusBadge } from '../../components/common/StatusBadge';
 import { Modal } from '../../components/common/Modal';
+import { PageHeader } from '../../components/common/PageHeader';
+import { Button } from '../../components/common/Button';
 import { prepareImageForStorage, formatBytes, ACCEPTED_IMAGE_TYPES } from '../../lib/images';
 import { ProductDetailModal } from './ProductDetailModal';
 import { useToast } from '../../components/common/Toast';
@@ -222,36 +224,25 @@ export const ProductsView: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
-            Inventory Master
-          </span>
-          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
-            Products Catalog
-          </h1>
-          <p className="text-xs text-stone-500 mt-1">
-            Master SKU directory, recipes, packaging specs, price master, and stock buffers.
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
-          <button
-            onClick={handleExportCSV}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-stone-700 bg-stone-100 hover:bg-stone-200 transition-colors cursor-pointer"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span>Export CSV</span>
-          </button>
-          <button
-            onClick={handleOpenAdd}
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors cursor-pointer"
-          >
-            <Plus className="w-4 h-4" />
-            <span>+ Add Product</span>
-          </button>
-        </div>
-      </div>
+      <PageHeader
+        eyebrow="Inventory Master"
+        title="Products"
+        description="SKU directory, packaging specs, price master and stock buffers."
+        actions={
+          <>
+            <Button
+              variant="secondary"
+              onClick={handleExportCSV}
+              leadingIcon={<Download className="w-3.5 h-3.5" />}
+            >
+              Export CSV
+            </Button>
+            <Button onClick={handleOpenAdd} leadingIcon={<Plus className="w-4 h-4" />}>
+              Add Product
+            </Button>
+          </>
+        }
+      />
 
       {/* Main Container */}
       <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs overflow-hidden">

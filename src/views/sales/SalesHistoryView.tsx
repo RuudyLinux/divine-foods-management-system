@@ -14,6 +14,7 @@ import { db } from '../../lib/db';
 import { Sale, Exhibition, PaymentMethod } from '../../types';
 import { formatINR, formatDateTime, formatDate } from '../../lib/brand';
 import { InvoiceModal } from '../../components/common/InvoiceModal';
+import { PageHeader } from '../../components/common/PageHeader';
 import { useToast } from '../../components/common/Toast';
 
 export const SalesHistoryView: React.FC = () => {
@@ -100,28 +101,24 @@ export const SalesHistoryView: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
-            Billing & Invoices
-          </span>
-          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
-            Sales & Orders History
-          </h1>
-          <p className="text-xs text-stone-500 mt-1">
-            Complete transaction ledger with customer invoices, historical COGS margins, and receipt printing.
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
+      <PageHeader
+        eyebrow="Billing & Invoices"
+        title="Sales & Orders History"
+        description="Complete transaction ledger with customer invoices, historical COGS margins, and receipt printing."
+        actions={
+          <>
+          <div className="flex items-center gap-2">
           <button
-            onClick={handleExportCSV}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-stone-700 bg-stone-100 hover:bg-stone-200 transition-colors cursor-pointer"
+          onClick={handleExportCSV}
+          className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-stone-700 bg-stone-100 hover:bg-stone-200 transition-colors cursor-pointer"
           >
-            <Download className="w-3.5 h-3.5" />
-            <span>Export CSV</span>
+          <Download className="w-3.5 h-3.5" />
+          <span>Export CSV</span>
           </button>
-        </div>
-      </div>
+          </div>
+          </>
+        }
+      />
 
       {/* Summary KPI mini cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

@@ -16,6 +16,7 @@ import { db } from '../../lib/db';
 import { Product, StockMovement, StockMovementType } from '../../types';
 import { formatINR, formatDateTime } from '../../lib/brand';
 import { StatCard } from '../../components/common/StatCard';
+import { PageHeader } from '../../components/common/PageHeader';
 import { StatusBadge } from '../../components/common/StatusBadge';
 import { Modal } from '../../components/common/Modal';
 import { useAuth } from '../../context/AuthContext';
@@ -124,28 +125,24 @@ export const InventoryView: React.FC<InventoryViewProps> = ({ initialTab = 'stoc
   return (
     <div className="space-y-6">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
-            Central Warehouse
-          </span>
-          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
-            Inventory & Stock Control
-          </h1>
-          <p className="text-xs text-stone-500 mt-1">
-            Real-time stock valuation, buffer thresholds, and immutable FIFO audit movement logs.
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
+      <PageHeader
+        eyebrow="Central Warehouse"
+        title="Inventory & Stock Control"
+        description="Real-time stock valuation, buffer thresholds, and immutable FIFO audit movement logs."
+        actions={
+          <>
+          <div className="flex items-center gap-2">
           <button
-            onClick={() => handleOpenAdjust()}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-stone-700 bg-stone-100 hover:bg-stone-200 transition-colors"
+          onClick={() => handleOpenAdjust()}
+          className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-stone-700 bg-stone-100 hover:bg-stone-200 transition-colors"
           >
-            <ArrowLeftRight className="w-3.5 h-3.5" />
-            <span>Stock Adjustment</span>
+          <ArrowLeftRight className="w-3.5 h-3.5" />
+          <span>Stock Adjustment</span>
           </button>
-        </div>
-      </div>
+          </div>
+          </>
+        }
+      />
 
       {/* KPI Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
