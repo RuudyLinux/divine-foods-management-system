@@ -29,14 +29,34 @@ export const Modal: React.FC<ModalProps> = ({
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
-      // Focus trap: focus the dialog on open
-      setTimeout(() => dialogRef.current?.focus(), 50);
     }
     return () => {
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, onClose]);
+
+  /**
+   * Move focus into the dialog when it opens.
+   *
+   * This deliberately depends on `isOpen` alone. Callers pass `onClose` as an
+   * inline arrow, so it is a new function on every render of the parent;
+   * including it here re-ran this effect on each keystroke (a controlled input
+   * updates parent state, which re-renders the parent) and pulled focus out of
+   * the field the user was typing in.
+   *
+   * Focus is also left alone when it is already inside the dialog, so an
+   * `autoFocus` field keeps it.
+   */
+  useEffect(() => {
+    if (!isOpen) return;
+    const timer = setTimeout(() => {
+      const dialog = dialogRef.current;
+      if (!dialog || dialog.contains(document.activeElement)) return;
+      dialog.focus();
+    }, 50);
+    return () => clearTimeout(timer);
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
