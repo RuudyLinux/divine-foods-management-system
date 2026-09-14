@@ -19,8 +19,9 @@ console.log('  ✔ Currency & Date formatters passed');
 // 2. Test Brand Identity
 console.log('Test 2: Brand constants and colors');
 assert.equal(BRAND_INFO.name, 'Divine Foods');
-assert.equal(BRAND_COLORS.darkGreen, '#1B4332');
-assert.equal(BRAND_COLORS.warmOrange, '#D97706');
+assert.equal(BRAND_COLORS.chocolate, '#2D1F1E');
+assert.equal(BRAND_COLORS.saffron, '#F47B20');
+assert.equal(BRAND_COLORS.cream, '#FFF9F0');
 console.log('  ✔ Brand identity invariants validated');
 
 // 3. A new installation starts empty, apart from the staff logins.

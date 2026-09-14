@@ -235,9 +235,9 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
       {/* Left: Product Catalog & Fast Grid */}
       <div className="flex-1 flex flex-col bg-white rounded-2xl border border-stone-200/80 shadow-xs overflow-hidden">
         {/* Top POS Context Bar */}
-        <div className="p-4 border-b border-stone-200/80 bg-[#FBF9F5]/70 flex flex-wrap items-center justify-between gap-3">
+        <div className="p-4 border-b border-stone-200/80 bg-[#FFF9F0]/70 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-[#1B4332] text-white flex items-center justify-center font-bold text-xs">
+            <div className="w-8 h-8 rounded-xl bg-[#2D1F1E] text-white flex items-center justify-center font-bold text-xs">
               POS
             </div>
             <div>
@@ -247,7 +247,7 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
               <div className="flex items-center gap-1.5 text-xs font-bold text-stone-900">
                 <span>{user?.name}</span>
                 <span className="text-stone-300">•</span>
-                <span className="text-[#1B4332]">
+                <span className="text-[#2D1F1E]">
                   {selectedExhibition ? selectedExhibition.name : 'Central Warehouse'}
                 </span>
               </div>
@@ -288,7 +288,7 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
               placeholder="Search product by name or scan barcode / SKU..."
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+              className="w-full pl-10 pr-4 py-2.5 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             />
           </div>
 
@@ -298,7 +298,7 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
               onClick={() => setActiveCategoryTab('ALL')}
               className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                 activeCategoryTab === 'ALL'
-                  ? 'bg-[#1B4332] text-white shadow-xs'
+                  ? 'bg-[#2D1F1E] text-white shadow-xs'
                   : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
               }`}
             >
@@ -310,7 +310,7 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
                 onClick={() => setActiveCategoryTab(cat.id)}
                 className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                   activeCategoryTab === cat.id
-                    ? 'bg-[#1B4332] text-white shadow-xs'
+                    ? 'bg-[#2D1F1E] text-white shadow-xs'
                     : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
                 }`}
               >
@@ -337,8 +337,8 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
                   isOutOfStock
                     ? 'bg-stone-100/70 border-stone-200 opacity-60 cursor-not-allowed'
                     : inCart
-                    ? 'bg-emerald-50/50 border-[#1B4332] ring-1 ring-[#1B4332] shadow-xs cursor-pointer'
-                    : 'bg-white border-stone-200 hover:border-[#1B4332]/40 hover:shadow-sm cursor-pointer'
+                    ? 'bg-emerald-50/50 border-[#2D1F1E] ring-1 ring-[#2D1F1E] shadow-xs cursor-pointer'
+                    : 'bg-white border-stone-200 hover:border-[#2D1F1E]/40 hover:shadow-sm cursor-pointer'
                 }`}
               >
                 <div>
@@ -356,20 +356,20 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
                       </div>
                     )}
                     {inCart && (
-                      <div className="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-[#1B4332] text-white font-bold text-xs flex items-center justify-center shadow-xs">
+                      <div className="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-[#2D1F1E] text-white font-bold text-xs flex items-center justify-center shadow-xs">
                         {inCart.quantity}
                       </div>
                     )}
                   </div>
 
-                  <h5 className="font-bold text-xs text-[#2C1810] line-clamp-1">{product.name}</h5>
+                  <h5 className="font-bold text-xs text-[#2D2523] line-clamp-1">{product.name}</h5>
                   <p className="text-[10px] text-stone-500">
                     {product.weight} {product.weight_unit} • {product.sku}
                   </p>
                 </div>
 
                 <div className="mt-3 pt-2 border-t border-stone-100 flex items-center justify-between">
-                  <span className="font-bold text-xs text-[#1B4332]">
+                  <span className="font-bold text-xs text-[#2D1F1E]">
                     {formatINR(product.default_selling_price)}
                   </span>
                   <span
@@ -389,11 +389,11 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
       {/* Right: Cart, Customer & Checkout Sidebar */}
       <div className="w-full lg:w-[420px] flex flex-col bg-white rounded-2xl border border-stone-200/80 shadow-xs overflow-hidden">
         {/* Cart Header */}
-        <div className="p-4 border-b border-stone-200/80 bg-[#FBF9F5]/70 flex items-center justify-between">
+        <div className="p-4 border-b border-stone-200/80 bg-[#FFF9F0]/70 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <ShoppingCart className="w-4 h-4 text-[#1B4332]" />
-            <h3 className="font-bold text-sm text-[#2C1810]">Current Cart</h3>
-            <span className="px-2 py-0.5 rounded-full bg-[#1B4332]/10 text-[#1B4332] font-bold text-xs">
+            <ShoppingCart className="w-4 h-4 text-[#2D1F1E]" />
+            <h3 className="font-bold text-sm text-[#2D2523]">Current Cart</h3>
+            <span className="px-2 py-0.5 rounded-full bg-[#2D1F1E]/10 text-[#2D1F1E] font-bold text-xs">
               {cart.reduce((s, i) => s + i.quantity, 0)}
             </span>
           </div>
@@ -439,7 +439,7 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
                     <span className="w-6 text-center font-bold text-stone-900">{item.quantity}</span>
                     <button
                       onClick={() => handleUpdateQty(item.product.id, item.quantity + 1)}
-                      className="w-6 h-6 rounded flex items-center justify-center text-[#1B4332] hover:bg-emerald-50 cursor-pointer"
+                      className="w-6 h-6 rounded flex items-center justify-center text-[#2D1F1E] hover:bg-emerald-50 cursor-pointer"
                     >
                       <Plus className="w-3 h-3" />
                     </button>
@@ -471,7 +471,7 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
         </div>
 
         {/* Customer & Discount Controls */}
-        <div className="p-4 border-t border-stone-200 space-y-3 bg-[#FBF9F5]/40 text-xs">
+        <div className="p-4 border-t border-stone-200 space-y-3 bg-[#FFF9F0]/40 text-xs">
           {/* Customer info (Optional) */}
           <div className="grid grid-cols-2 gap-2">
             <div className="relative">
@@ -505,7 +505,7 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
                   type="button"
                   onClick={() => setDiscountType('FLAT')}
                   className={`px-2 py-0.5 text-[10px] font-bold rounded ${
-                    discountType === 'FLAT' ? 'bg-white shadow-xs text-[#1B4332]' : 'text-stone-400'
+                    discountType === 'FLAT' ? 'bg-white shadow-xs text-[#2D1F1E]' : 'text-stone-400'
                   }`}
                 >
                   ₹
@@ -514,7 +514,7 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
                   type="button"
                   onClick={() => setDiscountType('PERCENT')}
                   className={`px-2 py-0.5 text-[10px] font-bold rounded ${
-                    discountType === 'PERCENT' ? 'bg-white shadow-xs text-[#1B4332]' : 'text-stone-400'
+                    discountType === 'PERCENT' ? 'bg-white shadow-xs text-[#2D1F1E]' : 'text-stone-400'
                   }`}
                 >
                   %
@@ -550,7 +550,7 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
                     onClick={() => setPaymentMethod(m.id as PaymentMethod)}
                     className={`py-2 px-1 flex flex-col items-center justify-center gap-1 rounded-xl border text-[11px] font-semibold transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-[#1B4332] text-white border-[#1B4332] shadow-xs'
+                        ? 'bg-[#2D1F1E] text-white border-[#2D1F1E] shadow-xs'
                         : 'bg-white text-stone-600 border-stone-200 hover:bg-stone-50'
                     }`}
                   >
@@ -604,9 +604,9 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
                 <span className="font-mono">-{formatINR(discountAmount)}</span>
               </div>
             )}
-            <div className="flex items-center justify-between pt-1 text-base font-extrabold text-[#2C1810]">
+            <div className="flex items-center justify-between pt-1 text-base font-extrabold text-[#2D2523]">
               <span>Grand Total</span>
-              <span className="text-[#1B4332] font-['Outfit',sans-serif] text-lg font-mono">
+              <span className="text-[#2D1F1E] font-['Outfit',sans-serif] text-lg font-mono">
                 {formatINR(grandTotal)}
               </span>
             </div>
@@ -617,7 +617,7 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
             type="button"
             disabled={cart.length === 0}
             onClick={handleCheckout}
-            className="w-full mt-2 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143823] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-sm shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full mt-2 py-3 rounded-xl bg-[#2D1F1E] hover:bg-[#1F1514] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-sm shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
             <Receipt className="w-4 h-4" />
             <span>Complete Sale • {formatINR(grandTotal)}</span>

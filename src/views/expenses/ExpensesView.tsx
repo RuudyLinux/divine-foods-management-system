@@ -145,10 +145,10 @@ export const ExpensesView: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
             Cost & Overhead Ledger
           </span>
-          <h1 className="text-2xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-0.5">
+          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
             Expenses Management
           </h1>
           <p className="text-xs text-stone-500 mt-1">
@@ -157,7 +157,7 @@ export const ExpensesView: React.FC = () => {
         </div>
         <button
           onClick={handleOpenAdd}
-          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           <span>+ Add Expense</span>
@@ -200,7 +200,7 @@ export const ExpensesView: React.FC = () => {
               placeholder="Search expenses by notes or category..."
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+              className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             />
           </div>
 
@@ -234,7 +234,7 @@ export const ExpensesView: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-stone-200 bg-[#FBF9F5]/70 text-stone-500 font-semibold uppercase tracking-wider">
+              <tr className="border-b border-stone-200 bg-[#FFF9F0]/70 text-stone-500 font-semibold uppercase tracking-wider">
                 <th className="py-3 px-4">Date</th>
                 <th className="py-3 px-4">Category</th>
                 <th className="py-3 px-4">Scope / Venue</th>
@@ -258,7 +258,7 @@ export const ExpensesView: React.FC = () => {
                       </td>
                       <td className="py-3.5 px-4">
                         {exh ? (
-                          <span className="font-semibold text-[#1B4332]">{exh.name}</span>
+                          <span className="font-semibold text-[#2D1F1E]">{exh.name}</span>
                         ) : (
                           <span className="text-stone-500 italic">Central Factory</span>
                         )}
@@ -310,7 +310,7 @@ export const ExpensesView: React.FC = () => {
                 required
                 value={expenseDate}
                 onChange={e => setExpenseDate(e.target.value)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               />
             </div>
             <div>
@@ -320,7 +320,7 @@ export const ExpensesView: React.FC = () => {
               <select
                 value={scope}
                 onChange={e => setScope(e.target.value as any)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               >
                 <option value="EXHIBITION">Exhibition Specific</option>
                 <option value="COMPANY">General Factory / Company</option>
@@ -336,7 +336,7 @@ export const ExpensesView: React.FC = () => {
               <select
                 value={exhibitionId}
                 onChange={e => setExhibitionId(e.target.value)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               >
                 {exhibitions.map(e => (
                   <option key={e.id} value={e.id}>
@@ -353,7 +353,7 @@ export const ExpensesView: React.FC = () => {
               <select
                 value={category}
                 onChange={e => setCategory(e.target.value as ExpenseCategory)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               >
                 {categoriesList.map(c => (
                   <option key={c} value={c}>
@@ -370,7 +370,7 @@ export const ExpensesView: React.FC = () => {
               <select
                 value={paymentMethod}
                 onChange={e => setPaymentMethod(e.target.value as PaymentMethod)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               >
                 <option value="UPI">UPI (GPay / PhonePe)</option>
                 <option value="CASH">Cash</option>
@@ -390,7 +390,7 @@ export const ExpensesView: React.FC = () => {
               required
               value={amount}
               onChange={e => setAmount(Number(e.target.value))}
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl font-bold text-rose-700 focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl font-bold text-rose-700 focus:outline-hidden"
             />
           </div>
 
@@ -404,7 +404,7 @@ export const ExpensesView: React.FC = () => {
               value={description}
               onChange={e => setDescription(e.target.value)}
               placeholder="e.g. Printing 1000 brand flyers and stall flex banner"
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
@@ -417,7 +417,7 @@ export const ExpensesView: React.FC = () => {
               value={receiptUrl}
               onChange={e => setReceiptUrl(e.target.value)}
               placeholder="https://..."
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
@@ -431,7 +431,7 @@ export const ExpensesView: React.FC = () => {
             </button>
             <button
               type="submit"
-              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs"
+              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs"
             >
               Save Expense Entry
             </button>

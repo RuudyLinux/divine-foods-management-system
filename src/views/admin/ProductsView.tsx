@@ -225,10 +225,10 @@ export const ProductsView: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
             Inventory Master
           </span>
-          <h1 className="text-2xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-0.5">
+          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
             Products Catalog
           </h1>
           <p className="text-xs text-stone-500 mt-1">
@@ -245,7 +245,7 @@ export const ProductsView: React.FC = () => {
           </button>
           <button
             onClick={handleOpenAdd}
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             <span>+ Add Product</span>
@@ -265,7 +265,7 @@ export const ProductsView: React.FC = () => {
                 placeholder="Search by Product Name or SKU..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+                className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
               />
             </div>
 
@@ -303,7 +303,7 @@ export const ProductsView: React.FC = () => {
               <button
                 onClick={() => setViewMode('table')}
                 className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
-                  viewMode === 'table' ? 'bg-white shadow-xs text-[#1B4332]' : 'text-stone-400'
+                  viewMode === 'table' ? 'bg-white shadow-xs text-[#2D1F1E]' : 'text-stone-400'
                 }`}
                 title="Table View"
               >
@@ -312,7 +312,7 @@ export const ProductsView: React.FC = () => {
               <button
                 onClick={() => setViewMode('grid')}
                 className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
-                  viewMode === 'grid' ? 'bg-white shadow-xs text-[#1B4332]' : 'text-stone-400'
+                  viewMode === 'grid' ? 'bg-white shadow-xs text-[#2D1F1E]' : 'text-stone-400'
                 }`}
                 title="Grid Cards View"
               >
@@ -327,7 +327,7 @@ export const ProductsView: React.FC = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="border-b border-stone-200 bg-[#FBF9F5]/70 text-stone-500 font-semibold uppercase tracking-wider">
+                <tr className="border-b border-stone-200 bg-[#FFF9F0]/70 text-stone-500 font-semibold uppercase tracking-wider">
                   <th className="py-3 px-4">Product Details</th>
                   <th className="py-3 px-4">SKU</th>
                   <th className="py-3 px-4">Category / Sub</th>
@@ -366,7 +366,7 @@ export const ProductsView: React.FC = () => {
                             <div>
                               <button
                                 onClick={() => setSelectedProductForDetail(prod)}
-                                className="font-bold text-stone-900 text-sm hover:text-[#1B4332] text-left"
+                                className="font-bold text-stone-900 text-sm hover:text-[#2D1F1E] text-left"
                               >
                                 {prod.name}
                               </button>
@@ -386,7 +386,7 @@ export const ProductsView: React.FC = () => {
                         <td className="py-3.5 px-4 text-stone-600 font-medium">
                           {prod.weight} {prod.weight_unit} / {prod.unit}
                         </td>
-                        <td className="py-3.5 px-4 text-right font-bold text-[#1B4332]">
+                        <td className="py-3.5 px-4 text-right font-bold text-[#2D1F1E]">
                           {formatINR(prod.default_selling_price)}
                         </td>
                         <td className="py-3.5 px-4 text-center">
@@ -417,7 +417,7 @@ export const ProductsView: React.FC = () => {
                             <button
                               type="button"
                               onClick={() => handleOpenEdit(prod)}
-                              className="p-1.5 rounded-lg border border-stone-200 text-stone-600 hover:text-[#1B4332] hover:bg-[#1B4332]/5 transition-colors"
+                              className="p-1.5 rounded-lg border border-stone-200 text-stone-600 hover:text-[#2D1F1E] hover:bg-[#2D1F1E]/5 transition-colors"
                               title="Edit Master Data"
                             >
                               <Edit2 className="w-4 h-4" />
@@ -473,7 +473,7 @@ export const ProductsView: React.FC = () => {
                     </div>
 
                     <div className="p-4">
-                      <h4 className="font-bold text-sm text-[#2C1810] line-clamp-1">{prod.name}</h4>
+                      <h4 className="font-bold text-sm text-[#2D2523] line-clamp-1">{prod.name}</h4>
                       <p className="text-[11px] text-stone-500 mt-0.5">
                         {prod.weight} {prod.weight_unit} per {prod.unit}
                       </p>
@@ -483,7 +483,7 @@ export const ProductsView: React.FC = () => {
                           <span className="text-[10px] uppercase font-bold text-stone-400 block">
                             Selling Price
                           </span>
-                          <span className="text-base font-bold text-[#1B4332]">
+                          <span className="text-base font-bold text-[#2D1F1E]">
                             {formatINR(prod.default_selling_price)}
                           </span>
                         </div>
@@ -509,7 +509,7 @@ export const ProductsView: React.FC = () => {
                     </button>
                     <button
                       onClick={() => handleOpenEdit(prod)}
-                      className="py-1.5 px-3 rounded-lg text-xs font-semibold text-[#1B4332] bg-[#1B4332]/10 hover:bg-[#1B4332]/20 transition-colors"
+                      className="py-1.5 px-3 rounded-lg text-xs font-semibold text-[#2D1F1E] bg-[#2D1F1E]/10 hover:bg-[#2D1F1E]/20 transition-colors"
                     >
                       <Edit2 className="w-3.5 h-3.5" />
                     </button>
@@ -541,7 +541,7 @@ export const ProductsView: React.FC = () => {
                 value={name}
                 onChange={e => setName(e.target.value)}
                 placeholder="e.g. Brownie Premix"
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
               />
             </div>
 
@@ -553,7 +553,7 @@ export const ProductsView: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleAutoGenerateSKU}
-                  className="text-[11px] font-semibold text-[#1B4332] hover:underline cursor-pointer"
+                  className="text-[11px] font-semibold text-[#2D1F1E] hover:underline cursor-pointer"
                 >
                   Auto-generate
                 </button>
@@ -564,7 +564,7 @@ export const ProductsView: React.FC = () => {
                 value={sku}
                 onChange={e => setSku(e.target.value.toUpperCase())}
                 placeholder="e.g. DF-PRX-001"
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl font-mono focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl font-mono focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
               />
             </div>
           </div>
@@ -579,7 +579,7 @@ export const ProductsView: React.FC = () => {
                   const firstSub = subCategories.find(s => s.category_id === e.target.value);
                   if (firstSub) setSubCategoryId(firstSub.id);
                 }}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               >
                 {categories.map(c => (
                   <option key={c.id} value={c.id}>
@@ -594,7 +594,7 @@ export const ProductsView: React.FC = () => {
               <select
                 value={subCategoryId}
                 onChange={e => setSubCategoryId(e.target.value)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               >
                 {subCategories
                   .filter(s => !categoryId || s.category_id === categoryId)
@@ -615,7 +615,7 @@ export const ProductsView: React.FC = () => {
                 value={unit}
                 onChange={e => setUnit(e.target.value)}
                 placeholder="Pack, Box, Pouch"
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               />
             </div>
             <div>
@@ -625,7 +625,7 @@ export const ProductsView: React.FC = () => {
                 min={1}
                 value={weight}
                 onChange={e => setWeight(Number(e.target.value))}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               />
             </div>
             <div>
@@ -633,7 +633,7 @@ export const ProductsView: React.FC = () => {
               <select
                 value={weightUnit}
                 onChange={e => setWeightUnit(e.target.value as WeightUnit)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               >
                 <option value="gm">gm</option>
                 <option value="kg">kg</option>
@@ -656,7 +656,7 @@ export const ProductsView: React.FC = () => {
                 required
                 value={defaultSellingPrice}
                 onChange={e => setDefaultSellingPrice(Number(e.target.value))}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl font-bold text-[#1B4332] focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl font-bold text-[#2D1F1E] focus:outline-hidden"
               />
             </div>
             <div>
@@ -668,7 +668,7 @@ export const ProductsView: React.FC = () => {
                 min={0}
                 value={minStockLevel}
                 onChange={e => setMinStockLevel(Number(e.target.value))}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               />
             </div>
             {!editingProduct && (
@@ -681,7 +681,7 @@ export const ProductsView: React.FC = () => {
                   min={0}
                   value={initialStock}
                   onChange={e => setInitialStock(Number(e.target.value))}
-                  className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                  className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
                 />
               </div>
             )}
@@ -694,7 +694,7 @@ export const ProductsView: React.FC = () => {
               value={description}
               onChange={e => setDescription(e.target.value)}
               placeholder="Ingredients, culinary taste notes, preservation details..."
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
@@ -702,7 +702,7 @@ export const ProductsView: React.FC = () => {
             <label className="block text-xs font-semibold text-stone-700 mb-1">Product Photo</label>
 
             <div className="flex items-start gap-3">
-              <div className="relative w-20 h-20 shrink-0 rounded-xl border border-stone-200 bg-[#FBF9F5] overflow-hidden flex items-center justify-center">
+              <div className="relative w-20 h-20 shrink-0 rounded-xl border border-stone-200 bg-[#FFF9F0] overflow-hidden flex items-center justify-center">
                 {imageUrl ? (
                   <>
                     <img src={imageUrl} alt="Product preview" className="w-full h-full object-cover" />
@@ -732,7 +732,7 @@ export const ProductsView: React.FC = () => {
                   type="button"
                   disabled={isProcessingImage}
                   onClick={() => imageInputRef.current?.click()}
-                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#1B4332] text-white text-xs font-semibold hover:bg-[#143823] transition-colors disabled:opacity-60"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#2D1F1E] text-white text-xs font-semibold hover:bg-[#1F1514] transition-colors disabled:opacity-60"
                 >
                   <Upload className="w-3.5 h-3.5" />
                   <span>{isProcessingImage ? 'Processing…' : 'Upload Photo'}</span>
@@ -744,7 +744,7 @@ export const ProductsView: React.FC = () => {
                   onChange={e => setImageUrl(e.target.value)}
                   placeholder="…or paste an image link"
                   disabled={imageUrl.startsWith('data:')}
-                  className="mt-2 w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden disabled:opacity-50"
+                  className="mt-2 w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden disabled:opacity-50"
                 />
                 <p className="text-[11px] text-stone-500 mt-1.5">
                   {imageUrl.startsWith('data:')
@@ -761,7 +761,7 @@ export const ProductsView: React.FC = () => {
               id="prodActive"
               checked={isActive}
               onChange={e => setIsActive(e.target.checked)}
-              className="rounded text-[#1B4332] focus:ring-[#1B4332] w-4 h-4 cursor-pointer"
+              className="rounded text-[#2D1F1E] focus:ring-[#2D1F1E] w-4 h-4 cursor-pointer"
             />
             <label htmlFor="prodActive" className="text-xs font-medium text-stone-700 cursor-pointer">
               Active in Product Catalog
@@ -778,7 +778,7 @@ export const ProductsView: React.FC = () => {
             </button>
             <button
               type="submit"
-              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs transition-colors"
+              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors"
             >
               {editingProduct ? 'Update Product' : 'Create Product'}
             </button>

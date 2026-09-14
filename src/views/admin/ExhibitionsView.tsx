@@ -242,10 +242,10 @@ export const ExhibitionsView: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
             Pop-up Venues & Expos
           </span>
-          <h1 className="text-2xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-0.5">
+          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
             Exhibitions Management
           </h1>
           <p className="text-xs text-stone-500 mt-1">
@@ -254,7 +254,7 @@ export const ExhibitionsView: React.FC = () => {
         </div>
         <button
           onClick={handleOpenAdd}
-          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           <span>+ Create Exhibition</span>
@@ -269,7 +269,7 @@ export const ExhibitionsView: React.FC = () => {
             onClick={() => setStatusTab(tab)}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold capitalize transition-all cursor-pointer ${
               statusTab === tab
-                ? 'bg-[#1B4332] text-white shadow-xs'
+                ? 'bg-[#2D1F1E] text-white shadow-xs'
                 : 'text-stone-600 hover:bg-stone-100'
             }`}
           >
@@ -292,11 +292,11 @@ export const ExhibitionsView: React.FC = () => {
               <div>
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <h3 className="font-bold text-base text-[#2C1810] font-['Outfit',sans-serif]">
+                    <h3 className="font-bold text-base text-[#2D2523] font-['Outfit',sans-serif]">
                       {exh.name}
                     </h3>
                     <div className="flex items-center gap-1.5 text-xs text-stone-500 mt-1">
-                      <MapPin className="w-3.5 h-3.5 text-[#D97706]" />
+                      <MapPin className="w-3.5 h-3.5 text-[#F47B20]" />
                       <span>
                         {exh.location}, {exh.city}
                       </span>
@@ -305,7 +305,7 @@ export const ExhibitionsView: React.FC = () => {
                   <StatusBadge status={exh.status} />
                 </div>
 
-                <div className="mt-4 p-3 rounded-xl bg-[#FBF9F5] border border-stone-100 space-y-2 text-xs">
+                <div className="mt-4 p-3 rounded-xl bg-[#FFF9F0] border border-stone-100 space-y-2 text-xs">
                   <div className="flex items-center justify-between text-stone-600">
                     <span className="flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5 text-stone-400" />
@@ -320,7 +320,7 @@ export const ExhibitionsView: React.FC = () => {
                       <UserCheck className="w-3.5 h-3.5 text-stone-400" />
                       <span>Manager</span>
                     </span>
-                    <span className="font-semibold text-[#1B4332]">
+                    <span className="font-semibold text-[#2D1F1E]">
                       {exh.assigned_user_name || 'Staff'}
                     </span>
                   </div>
@@ -361,7 +361,7 @@ export const ExhibitionsView: React.FC = () => {
                 </span>
                 <button
                   onClick={() => setSelectedExhibition(exh)}
-                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#1B4332] hover:bg-[#143823] text-white text-xs font-semibold transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#2D1F1E] hover:bg-[#1F1514] text-white text-xs font-semibold transition-colors cursor-pointer"
                 >
                   <span>Manage Stall</span>
                   <ArrowRight className="w-3 h-3" />
@@ -390,7 +390,7 @@ export const ExhibitionsView: React.FC = () => {
               value={name}
               onChange={e => setName(e.target.value)}
               placeholder="e.g. Vadodara Navratri Food Expo 2026"
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             />
           </div>
 
@@ -405,7 +405,7 @@ export const ExhibitionsView: React.FC = () => {
                 value={location}
                 onChange={e => setLocation(e.target.value)}
                 placeholder="e.g. Navlakhi Ground, Stall #42"
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               />
             </div>
             <div>
@@ -418,7 +418,7 @@ export const ExhibitionsView: React.FC = () => {
                 value={city}
                 onChange={e => setCity(e.target.value)}
                 placeholder="e.g. Vadodara, Ahmedabad, Surat"
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               />
             </div>
           </div>
@@ -433,7 +433,7 @@ export const ExhibitionsView: React.FC = () => {
                 required
                 value={startDate}
                 onChange={e => setStartDate(e.target.value)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               />
             </div>
             <div>
@@ -445,7 +445,7 @@ export const ExhibitionsView: React.FC = () => {
                 required
                 value={endDate}
                 onChange={e => setEndDate(e.target.value)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               />
             </div>
           </div>
@@ -457,7 +457,7 @@ export const ExhibitionsView: React.FC = () => {
             <select
               value={assignedUserId}
               onChange={e => setAssignedUserId(e.target.value)}
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             >
               {users.map(u => (
                 <option key={u.id} value={u.id}>
@@ -474,7 +474,7 @@ export const ExhibitionsView: React.FC = () => {
               value={notes}
               onChange={e => setNotes(e.target.value)}
               placeholder="e.g. Expected footfall: 5000/day. Focus on Brownie Premix samplers."
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
@@ -488,7 +488,7 @@ export const ExhibitionsView: React.FC = () => {
             </button>
             <button
               type="submit"
-              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs"
+              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs"
             >
               Create Exhibition
             </button>
@@ -509,7 +509,7 @@ export const ExhibitionsView: React.FC = () => {
         >
           <div className="space-y-6">
             {/* Quick Actions & Status Banner */}
-            <div className="flex flex-wrap items-center justify-between gap-3 p-4 rounded-xl bg-[#FBF9F5] border border-stone-200">
+            <div className="flex flex-wrap items-center justify-between gap-3 p-4 rounded-xl bg-[#FFF9F0] border border-stone-200">
               <div className="flex items-center gap-3">
                 <StatusBadge status={selectedExhibition.status} />
                 <span className="text-xs text-stone-600 font-medium">
@@ -525,7 +525,7 @@ export const ExhibitionsView: React.FC = () => {
                     setAllocateQty(20);
                     setIsAllocateModalOpen(true);
                   }}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   <span>Allocate Stock</span>
@@ -539,7 +539,7 @@ export const ExhibitionsView: React.FC = () => {
                   }}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-stone-700 bg-white border border-stone-200 hover:bg-stone-50"
                 >
-                  <DollarSign className="w-3.5 h-3.5 text-[#D97706]" />
+                  <DollarSign className="w-3.5 h-3.5 text-[#F47B20]" />
                   <span>Add Expense</span>
                 </button>
                 {(selectedExhibition.status === 'UPCOMING' ||
@@ -568,7 +568,7 @@ export const ExhibitionsView: React.FC = () => {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <div className="p-3.5 rounded-xl bg-white border border-stone-200 shadow-xs text-center">
                 <span className="text-[10px] uppercase font-bold text-stone-400 block">Total Sales</span>
-                <span className="text-base font-bold text-[#1B4332] font-mono">
+                <span className="text-base font-bold text-[#2D1F1E] font-mono">
                   {formatINR(selectedAnalytics?.salesRevenue || 0)}
                 </span>
                 <span className="text-[10px] text-stone-500 block mt-0.5">
@@ -610,7 +610,7 @@ export const ExhibitionsView: React.FC = () => {
               <div className="overflow-x-auto border border-stone-200 rounded-xl">
                 <table className="w-full text-left text-xs">
                   <thead>
-                    <tr className="border-b border-stone-200 bg-[#FBF9F5] text-stone-500 font-semibold uppercase">
+                    <tr className="border-b border-stone-200 bg-[#FFF9F0] text-stone-500 font-semibold uppercase">
                       <th className="py-2.5 px-3">Product</th>
                       <th className="py-2.5 px-3 text-center">Allocated</th>
                       <th className="py-2.5 px-3 text-center">Sold</th>
@@ -627,7 +627,7 @@ export const ExhibitionsView: React.FC = () => {
                         <tr key={alloc.id} className="hover:bg-stone-50">
                           <td className="py-2.5 px-3 font-semibold text-stone-900">{alloc.product_name}</td>
                           <td className="py-2.5 px-3 text-center font-bold">{alloc.quantity_allocated}</td>
-                          <td className="py-2.5 px-3 text-center font-bold text-[#1B4332]">{alloc.quantity_sold}</td>
+                          <td className="py-2.5 px-3 text-center font-bold text-[#2D1F1E]">{alloc.quantity_sold}</td>
                           <td className="py-2.5 px-3 text-center text-stone-500">{alloc.quantity_returned}</td>
                           <td className="py-2.5 px-3 text-center font-bold text-amber-700">{stallBalance}</td>
                           <td className="py-2.5 px-3 text-right font-mono">{formatINR(alloc.cost_per_unit)}</td>
@@ -640,7 +640,7 @@ export const ExhibitionsView: React.FC = () => {
                                   setReturnQty(stallBalance);
                                   setIsReturnModalOpen(true);
                                 }}
-                                className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#1B4332] hover:underline"
+                                className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#2D1F1E] hover:underline"
                               >
                                 <RotateCcw className="w-3 h-3" />
                                 <span>Return to Main</span>
@@ -698,7 +698,7 @@ export const ExhibitionsView: React.FC = () => {
             <select
               value={allocateProductId}
               onChange={e => setAllocateProductId(e.target.value)}
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             >
               {products.map(p => (
                 <option key={p.id} value={p.id}>
@@ -718,7 +718,7 @@ export const ExhibitionsView: React.FC = () => {
               required
               value={allocateQty}
               onChange={e => setAllocateQty(Math.max(1, Number(e.target.value)))}
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
@@ -732,7 +732,7 @@ export const ExhibitionsView: React.FC = () => {
             </button>
             <button
               type="submit"
-              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs"
+              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs"
             >
               Dispatch to Exhibition
             </button>
@@ -756,7 +756,7 @@ export const ExhibitionsView: React.FC = () => {
               required
               value={returnQty}
               onChange={e => setReturnQty(Math.max(1, Number(e.target.value)))}
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
@@ -770,7 +770,7 @@ export const ExhibitionsView: React.FC = () => {
             </button>
             <button
               type="submit"
-              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs"
+              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs"
             >
               Confirm Return to Main Stock
             </button>
@@ -792,7 +792,7 @@ export const ExhibitionsView: React.FC = () => {
               <select
                 value={expenseCategory}
                 onChange={e => setExpenseCategory(e.target.value as ExpenseCategory)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               >
                 <option value="STALL_RENT">Stall Rent</option>
                 <option value="TRAVEL">Travel / Auto</option>
@@ -806,7 +806,7 @@ export const ExhibitionsView: React.FC = () => {
               <select
                 value={expensePaymentMethod}
                 onChange={e => setExpensePaymentMethod(e.target.value as PaymentMethod)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               >
                 <option value="UPI">UPI (Google Pay/Paytm)</option>
                 <option value="CASH">Cash</option>
@@ -824,7 +824,7 @@ export const ExhibitionsView: React.FC = () => {
               required
               value={expenseAmount}
               onChange={e => setExpenseAmount(Number(e.target.value))}
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl font-bold text-rose-700 focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl font-bold text-rose-700 focus:outline-hidden"
             />
           </div>
 
@@ -836,7 +836,7 @@ export const ExhibitionsView: React.FC = () => {
               value={expenseDescription}
               onChange={e => setExpenseDescription(e.target.value)}
               placeholder="e.g. Electrical wiring deposit, tea & snacks for volunteers..."
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
@@ -850,7 +850,7 @@ export const ExhibitionsView: React.FC = () => {
             </button>
             <button
               type="submit"
-              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs"
+              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs"
             >
               Save Stall Expense
             </button>

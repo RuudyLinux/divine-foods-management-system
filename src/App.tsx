@@ -150,7 +150,7 @@ const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="h-screen bg-[#FBF9F5] overflow-hidden text-stone-900 font-['Plus_Jakarta_Sans',sans-serif]">
+    <div className="h-screen bg-[#FFF9F0] overflow-hidden text-stone-900 font-['Plus_Jakarta_Sans',sans-serif]">
       {/* Sidebar Navigation */}
       <Sidebar
         activeTab={activeTab}
@@ -172,7 +172,7 @@ const AppContent: React.FC = () => {
 
         {/* Scrollable View Viewport */}
         <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
-          <div className="max-w-7xl mx-auto animate-fade-in-up" key={activeTab}>
+          <div className="max-w-7xl mx-auto animate-fade-in" key={activeTab}>
             {renderActiveView()}
           </div>
         </main>

@@ -67,7 +67,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
     >
       <div className="space-y-5">
         {/* Top Summary Header */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 rounded-xl bg-[#FBF9F5] border border-stone-200 gap-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 rounded-xl bg-[#FFF9F0] border border-stone-200 gap-4">
           <div className="flex items-center gap-3">
             {product.image_url ? (
               <img
@@ -83,7 +83,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             )}
             <div>
               <div className="flex items-center gap-2">
-                <h4 className="font-bold text-base text-[#2C1810]">{product.name}</h4>
+                <h4 className="font-bold text-base text-[#2D2523]">{product.name}</h4>
                 <StatusBadge status={stockStatus} />
               </div>
               <p className="text-xs text-stone-500 mt-0.5">
@@ -97,7 +97,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               <span className="text-[10px] uppercase font-bold text-stone-400 block">
                 Selling Price
               </span>
-              <span className="text-lg font-bold text-[#1B4332] font-['Outfit',sans-serif]">
+              <span className="text-lg font-bold text-[#2D1F1E] font-['Outfit',sans-serif]">
                 {formatINR(product.default_selling_price)}
               </span>
             </div>
@@ -126,7 +126,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               onClick={() => setActiveTab(t.id as any)}
               className={`pb-2.5 px-3 border-b-2 transition-colors whitespace-nowrap cursor-pointer ${
                 activeTab === t.id
-                  ? 'border-[#1B4332] text-[#1B4332] font-bold'
+                  ? 'border-[#2D1F1E] text-[#2D1F1E] font-bold'
                   : 'border-transparent text-stone-500 hover:text-stone-800'
               }`}
             >
@@ -189,7 +189,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                           <td className="py-2.5 text-stone-500">
                             {batch ? formatDate(batch.production_date) : '-'}
                           </td>
-                          <td className="py-2.5 text-center font-bold text-[#1B4332]">
+                          <td className="py-2.5 text-center font-bold text-[#2D1F1E]">
                             {item.quantity} units
                           </td>
                           <td className="py-2.5 text-right text-stone-700">
@@ -234,7 +234,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       const sale = allSales.find(s => s.id === item.sale_id);
                       return (
                         <tr key={item.id} className="hover:bg-stone-50">
-                          <td className="py-2.5 font-mono font-semibold text-[#1B4332]">
+                          <td className="py-2.5 font-mono font-semibold text-[#2D1F1E]">
                             {sale?.invoice_no || 'Invoice'}
                           </td>
                           <td className="py-2.5 text-stone-500">
@@ -332,7 +332,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       const exh = exhibitions.find(e => e.id === a.exhibition_id);
                       return (
                         <tr key={a.id} className="hover:bg-stone-50">
-                          <td className="py-2.5 font-bold text-[#1B4332]">{exh?.name || 'Exhibition'}</td>
+                          <td className="py-2.5 font-bold text-[#2D1F1E]">{exh?.name || 'Exhibition'}</td>
                           <td className="py-2.5 text-stone-500">{formatDate(a.allocated_at)}</td>
                           <td className="py-2.5 text-center font-bold text-stone-800">{a.quantity_allocated}</td>
                           <td className="py-2.5 text-right text-stone-600">{formatINR(a.cost_per_unit)}</td>

@@ -35,10 +35,10 @@ export const LoginView: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FBF9F5] flex flex-col justify-center items-center p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-[#FFF9F0] flex flex-col justify-center items-center p-4 sm:p-6 lg:p-8">
       <div className="w-full max-w-5xl bg-white rounded-3xl shadow-xl border border-stone-200/80 overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[640px]">
         {/* Left Side: Brand Visuals, Tagline, Statement */}
-        <div className="lg:col-span-6 bg-gradient-to-br from-[#1B4332] via-[#143823] to-[#2C1810] text-white p-8 sm:p-12 flex flex-col justify-between relative overflow-hidden">
+        <div className="lg:col-span-6 bg-gradient-to-br from-[#2D1F1E] via-[#1F1514] to-[#2D2523] text-white p-8 sm:p-12 flex flex-col justify-between relative overflow-hidden">
           {/* Subtle background food artwork overlay */}
           <div
             className="absolute inset-0 opacity-15 bg-cover bg-center mix-blend-overlay pointer-events-none"
@@ -85,10 +85,10 @@ export const LoginView: React.FC = () => {
         <div className="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-center bg-white">
           <div className="max-w-md w-full mx-auto">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#1B4332]">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#2D1F1E]">
                 Portal Authentication
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-1">
                 Welcome back to Divine Foods
               </h2>
               <p className="text-xs text-stone-500 mt-1">
@@ -111,7 +111,7 @@ export const LoginView: React.FC = () => {
                     value={identifier}
                     onChange={e => setIdentifier(e.target.value)}
                     placeholder="Email or mobile number"
-                    className="w-full pl-10 pr-4 py-2.5 bg-[#FBF9F5] border border-stone-200 rounded-xl text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30 focus:border-[#1B4332] transition-colors"
+                    className="w-full pl-10 pr-4 py-2.5 bg-[#FFF9F0] border border-stone-200 rounded-xl text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30 focus:border-[#2D1F1E] transition-colors"
                   />
                 </div>
               </div>
@@ -138,14 +138,14 @@ export const LoginView: React.FC = () => {
                       <Lock className="w-4 h-4" />
                     </div>
                   }
-                  className="w-full pl-10 pr-10 py-2.5 bg-[#FBF9F5] border border-stone-200 rounded-xl text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30 focus:border-[#1B4332] transition-colors"
+                  className="w-full pl-10 pr-10 py-2.5 bg-[#FFF9F0] border border-stone-200 rounded-xl text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30 focus:border-[#2D1F1E] transition-colors"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full mt-2 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-md hover:shadow-lg transition-all disabled:opacity-50 cursor-pointer"
+                className="w-full mt-2 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-md hover:shadow-lg transition-all disabled:opacity-50 cursor-pointer"
               >
                 <span>{isLoading ? 'Authenticating...' : 'Sign In to Account'}</span>
                 <ArrowRight className="w-4 h-4" />

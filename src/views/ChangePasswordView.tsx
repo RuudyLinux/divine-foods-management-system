@@ -45,7 +45,7 @@ export const ChangePasswordView: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FBF9F5] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-[#FFF9F0] flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white rounded-2xl border border-stone-200/80 shadow-sm p-7">
         <DivineLogo size="lg" variant="full" />
 
@@ -56,7 +56,7 @@ export const ChangePasswordView: React.FC = () => {
           </p>
         </div>
 
-        <h1 className="text-xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-6">
+        <h1 className="text-xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-6">
           Set your password
         </h1>
         <p className="text-xs text-stone-500 mt-1">
@@ -76,7 +76,7 @@ export const ChangePasswordView: React.FC = () => {
               leadingIcon={
                 <KeyRound className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2 z-10" />
               }
-              className="w-full pl-9 pr-10 py-2.5 text-sm bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full pl-9 pr-10 py-2.5 text-sm bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
             {problem && <p className="text-[11px] text-red-600 mt-1.5">{problem}</p>}
           </div>
@@ -94,7 +94,7 @@ export const ChangePasswordView: React.FC = () => {
               leadingIcon={
                 <KeyRound className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2 z-10" />
               }
-              className="w-full pl-9 pr-10 py-2.5 text-sm bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full pl-9 pr-10 py-2.5 text-sm bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
             {confirmPassword && confirmPassword !== newPassword && (
               <p className="text-[11px] text-red-600 mt-1.5">Both passwords must match.</p>
@@ -104,7 +104,7 @@ export const ChangePasswordView: React.FC = () => {
           <button
             type="submit"
             disabled={isSaving}
-            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#1B4332] text-white text-sm font-semibold hover:bg-[#143823] transition-colors disabled:opacity-60"
+            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#2D1F1E] text-white text-sm font-semibold hover:bg-[#1F1514] transition-colors disabled:opacity-60"
           >
             <span>{isSaving ? 'Saving…' : 'Save Password & Continue'}</span>
             {!isSaving && <ArrowRight className="w-4 h-4" />}

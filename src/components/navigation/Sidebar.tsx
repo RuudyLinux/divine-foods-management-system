@@ -99,18 +99,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
         role="navigation"
         aria-label="Main navigation"
       >
-        {/* Decorative floating orbs */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <div
-            className="absolute top-20 right-8 w-32 h-32 rounded-full bg-emerald-400/10"
-            style={{ animation: 'floatOrb 8s ease-in-out infinite' }}
-          />
-          <div
-            className="absolute bottom-32 left-4 w-24 h-24 rounded-full bg-amber-400/8"
-            style={{ animation: 'floatOrb2 10s ease-in-out infinite' }}
-          />
-        </div>
-
         {/* Brand Header */}
         <div className="relative z-10 px-5 py-5 flex items-center justify-between border-b border-white/10">
           <DivineLogo size="sm" variant="white" />
@@ -447,7 +435,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {/* User Card & Logout Footer */}
         <div className="relative z-10 p-3.5 border-t border-white/10 bg-black/15">
           <div className="flex items-center gap-3 px-1 py-1.5">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 text-white flex items-center justify-center font-bold text-xs uppercase shadow-md ring-2 ring-emerald-400/20">
+            <div className="w-9 h-9 rounded-full bg-[#F47B20] text-white flex items-center justify-center font-bold text-xs uppercase ring-2 ring-[#FFF9F0]/15">
               {user?.name ? user.name.substring(0, 2) : 'DF'}
             </div>
             <div className="flex-1 min-w-0">

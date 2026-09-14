@@ -116,10 +116,10 @@ export const SubCategoriesView: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
             Product Taxonomy
           </span>
-          <h1 className="text-2xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-0.5">
+          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
             Sub Categories
           </h1>
           <p className="text-xs text-stone-500 mt-1">
@@ -128,7 +128,7 @@ export const SubCategoriesView: React.FC = () => {
         </div>
         <button
           onClick={handleOpenAdd}
-          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           <span>Add Sub Category</span>
@@ -146,7 +146,7 @@ export const SubCategoriesView: React.FC = () => {
               placeholder="Search sub categories..."
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+              className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             />
           </div>
 
@@ -171,7 +171,7 @@ export const SubCategoriesView: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-stone-200 bg-[#FBF9F5]/70 text-stone-500 font-semibold uppercase tracking-wider">
+              <tr className="border-b border-stone-200 bg-[#FFF9F0]/70 text-stone-500 font-semibold uppercase tracking-wider">
                 <th className="py-3 px-4">Parent Category</th>
                 <th className="py-3 px-4">Sub Category</th>
                 <th className="py-3 px-4">Description</th>
@@ -194,7 +194,7 @@ export const SubCategoriesView: React.FC = () => {
                       </td>
                       <td className="py-3.5 px-4">
                         <div className="flex items-center gap-2">
-                          <Network className="w-4 h-4 text-[#1B4332]" />
+                          <Network className="w-4 h-4 text-[#2D1F1E]" />
                           <span className="font-bold text-stone-900 text-sm">{sub.name}</span>
                         </div>
                       </td>
@@ -275,7 +275,7 @@ export const SubCategoriesView: React.FC = () => {
               required
               value={categoryId}
               onChange={e => setCategoryId(e.target.value)}
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             >
               {categories.map(c => (
                 <option key={c.id} value={c.id}>
@@ -295,7 +295,7 @@ export const SubCategoriesView: React.FC = () => {
               value={name}
               onChange={e => setName(e.target.value)}
               placeholder="e.g. Punjabi, Chinese, Cake, Brownie, Masala"
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             />
           </div>
 
@@ -306,7 +306,7 @@ export const SubCategoriesView: React.FC = () => {
               value={description}
               onChange={e => setDescription(e.target.value)}
               placeholder="Flavor profile or product types included..."
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             />
           </div>
 
@@ -316,7 +316,7 @@ export const SubCategoriesView: React.FC = () => {
               id="subActive"
               checked={isActive}
               onChange={e => setIsActive(e.target.checked)}
-              className="rounded text-[#1B4332] focus:ring-[#1B4332] w-4 h-4 cursor-pointer"
+              className="rounded text-[#2D1F1E] focus:ring-[#2D1F1E] w-4 h-4 cursor-pointer"
             />
             <label htmlFor="subActive" className="text-xs font-medium text-stone-700 cursor-pointer">
               Active Sub Category
@@ -333,7 +333,7 @@ export const SubCategoriesView: React.FC = () => {
             </button>
             <button
               type="submit"
-              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs transition-colors"
+              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors"
             >
               {editingSub ? 'Update Sub Category' : 'Save Sub Category'}
             </button>

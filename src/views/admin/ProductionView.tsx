@@ -153,10 +153,10 @@ export const ProductionView: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
             Kitchen & Factory Operations
           </span>
-          <h1 className="text-2xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-0.5">
+          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
             Production / Making
           </h1>
           <p className="text-xs text-stone-500 mt-1">
@@ -165,7 +165,7 @@ export const ProductionView: React.FC = () => {
         </div>
         <button
           onClick={handleOpenNewProduction}
-          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors cursor-pointer"
         >
           <Factory className="w-4 h-4" />
           <span>+ New Production Batch</span>
@@ -182,7 +182,7 @@ export const ProductionView: React.FC = () => {
               placeholder="Search by Batch No, Recipe Notes, or Operator..."
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+              className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             />
           </div>
           <span className="text-xs text-stone-500 font-medium">
@@ -193,7 +193,7 @@ export const ProductionView: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-stone-200 bg-[#FBF9F5]/70 text-stone-500 font-semibold uppercase tracking-wider">
+              <tr className="border-b border-stone-200 bg-[#FFF9F0]/70 text-stone-500 font-semibold uppercase tracking-wider">
                 <th className="py-3 px-4">Batch No</th>
                 <th className="py-3 px-4">Production Date</th>
                 <th className="py-3 px-4">Items / Recipes Included</th>
@@ -209,7 +209,7 @@ export const ProductionView: React.FC = () => {
                   const items = db.getProductionItems(batch.id);
                   return (
                     <tr key={batch.id} className="hover:bg-stone-50/70 transition-colors">
-                      <td className="py-3.5 px-4 font-mono font-bold text-sm text-[#1B4332]">
+                      <td className="py-3.5 px-4 font-mono font-bold text-sm text-[#2D1F1E]">
                         {batch.batch_no}
                       </td>
                       <td className="py-3.5 px-4 text-stone-600 font-medium">
@@ -281,7 +281,7 @@ export const ProductionView: React.FC = () => {
                 value={batchNo}
                 onChange={e => setBatchNo(e.target.value)}
                 placeholder="e.g. DF-20260910-001"
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl font-mono focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl font-mono focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
               />
             </div>
             <div>
@@ -293,7 +293,7 @@ export const ProductionView: React.FC = () => {
                 required
                 value={productionDate}
                 onChange={e => setProductionDate(e.target.value)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               />
             </div>
           </div>
@@ -305,20 +305,20 @@ export const ProductionView: React.FC = () => {
               value={notes}
               onChange={e => setNotes(e.target.value)}
               placeholder="e.g. Festival weekend bulk prep, roasted fresh batch with Gujarati cumin..."
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
           {/* Multiple Product Rows in One Batch */}
           <div className="pt-2">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
                 Batch Product Items ({batchItems.length})
               </span>
               <button
                 type="button"
                 onClick={handleAddRow}
-                className="inline-flex items-center gap-1 text-xs font-semibold text-[#1B4332] hover:underline cursor-pointer"
+                className="inline-flex items-center gap-1 text-xs font-semibold text-[#2D1F1E] hover:underline cursor-pointer"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Add Product Row</span>
@@ -332,7 +332,7 @@ export const ProductionView: React.FC = () => {
                 return (
                   <div
                     key={index}
-                    className="p-3.5 rounded-xl border border-stone-200 bg-[#FBF9F5] grid grid-cols-1 sm:grid-cols-12 gap-3 items-center"
+                    className="p-3.5 rounded-xl border border-stone-200 bg-[#FFF9F0] grid grid-cols-1 sm:grid-cols-12 gap-3 items-center"
                   >
                     <div className="sm:col-span-4">
                       <label className="block text-[10px] uppercase font-bold text-stone-400 mb-1">
@@ -387,7 +387,7 @@ export const ProductionView: React.FC = () => {
                       <label className="block text-[10px] uppercase font-bold text-stone-400 mb-1">
                         Line Total Cost
                       </label>
-                      <div className="px-2.5 py-1.5 text-xs font-bold text-[#1B4332] bg-white border border-stone-200 rounded-lg text-right font-mono">
+                      <div className="px-2.5 py-1.5 text-xs font-bold text-[#2D1F1E] bg-white border border-stone-200 rounded-lg text-right font-mono">
                         {formatINR(lineTotalCost)}
                       </div>
                     </div>
@@ -419,7 +419,7 @@ export const ProductionView: React.FC = () => {
                 <span className="text-[10px] uppercase font-bold text-stone-400 block">
                   Total Production Cost
                 </span>
-                <span className="text-lg font-extrabold text-[#1B4332] font-['Outfit',sans-serif]">
+                <span className="text-lg font-extrabold text-[#2D1F1E] font-['Outfit',sans-serif]">
                   {formatINR(calculateBatchTotalCost())}
                 </span>
               </div>
@@ -436,7 +436,7 @@ export const ProductionView: React.FC = () => {
             </button>
             <button
               type="submit"
-              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs transition-colors"
+              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors"
             >
               Save Production & Increase Stock
             </button>
@@ -491,7 +491,7 @@ export const ProductionView: React.FC = () => {
                         {item.quantity} units @ {formatINR(item.cost_per_unit)} / unit
                       </p>
                     </div>
-                    <span className="font-bold text-[#1B4332] font-mono">
+                    <span className="font-bold text-[#2D1F1E] font-mono">
                       {formatINR(item.total_cost)}
                     </span>
                   </div>
@@ -501,7 +501,7 @@ export const ProductionView: React.FC = () => {
 
             <div className="pt-3 border-t border-stone-200 flex justify-between text-sm font-bold text-stone-800">
               <span>Total Batch Cost:</span>
-              <span className="text-[#1B4332] font-mono">
+              <span className="text-[#2D1F1E] font-mono">
                 {formatINR(selectedBatchForView.total_cost)}
               </span>
             </div>

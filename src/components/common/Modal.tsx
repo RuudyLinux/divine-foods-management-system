@@ -71,52 +71,55 @@ export const Modal: React.FC<ModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-      {/* Backdrop with blur */}
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+      {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/40 backdrop-blur-sm"
-        style={{ animation: 'fadeInUp 0.2s ease forwards' }}
+        className="fixed inset-0 bg-[#1F1514]/45"
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Modal Dialog */}
+      {/*
+        The dialog is a column capped to the viewport: header and footer stay
+        put and only the body scrolls, so the primary action is always reachable
+        however long the form is.
+      */}
       <div
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
         tabIndex={-1}
-        className={`relative w-full ${maxWidthClasses[maxWidth]} bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-stone-200/80 overflow-hidden z-10 my-8 animate-fade-in-up`}
+        className={`relative z-10 flex w-full ${maxWidthClasses[maxWidth]} max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] flex-col overflow-hidden rounded-2xl border border-[#E8DED2] bg-white shadow-[0_10px_24px_rgba(45,31,30,0.14)] animate-fade-in-up`}
       >
-        {/* Header with gradient accent */}
-        <div className="relative flex items-start justify-between px-6 py-5 border-b border-stone-200/60">
-          {/* Subtle gradient accent bar */}
-          <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#1B4332] via-[#2D6A4F] to-[#D97706]" aria-hidden="true" />
-          <div>
-            <h3 id="modal-title" className="text-lg font-bold text-[#2C1810] font-['Outfit',sans-serif]">
+        {/* Header */}
+        <div className="relative flex shrink-0 items-start justify-between gap-4 border-b border-[#E8DED2] px-6 py-4">
+          <div className="absolute inset-x-0 top-0 h-[3px] bg-[#F47B20]" aria-hidden="true" />
+          <div className="min-w-0">
+            <h3
+              id="modal-title"
+              className="font-['Outfit',sans-serif] text-base font-bold text-[#2D2523]"
+            >
               {title}
             </h3>
-            {subtitle && <p className="text-xs text-stone-500 mt-0.5">{subtitle}</p>}
+            {subtitle && <p className="mt-0.5 text-xs text-[#756B66]">{subtitle}</p>}
           </div>
           <button
             type="button"
             onClick={onClose}
             aria-label="Close modal dialog"
-            className="p-1.5 rounded-lg text-stone-400 hover:text-stone-700 hover:bg-stone-100 focus:outline-hidden focus-ring transition-colors cursor-pointer"
+            className="-mr-1 shrink-0 cursor-pointer rounded-lg p-1.5 text-[#9A8F88] transition-colors hover:bg-[#F7F0E5] hover:text-[#2D2523] focus-ring"
           >
-            <X className="w-5 h-5" />
+            <X className="h-5 w-5" />
           </button>
         </div>
 
-        {/* Content */}
-        <div className="p-6 max-h-[calc(85vh-140px)] overflow-y-auto">
-          {children}
-        </div>
+        {/* Body — the only scrolling region */}
+        <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">{children}</div>
 
-        {/* Footer if provided */}
+        {/* Footer — stays visible while the body scrolls */}
         {footer && (
-          <div className="px-6 py-4 bg-stone-50/80 backdrop-blur-sm border-t border-stone-200/60 flex items-center justify-end gap-3">
+          <div className="flex shrink-0 items-center justify-end gap-3 border-t border-[#E8DED2] bg-[#FFF9F0] px-6 py-3.5">
             {footer}
           </div>
         )}

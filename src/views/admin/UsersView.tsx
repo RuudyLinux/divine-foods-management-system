@@ -181,10 +181,10 @@ export const UsersView: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
             Security & Team Access
           </span>
-          <h1 className="text-2xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-0.5">
+          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
             Users & Roles Management
           </h1>
           <p className="text-xs text-stone-500 mt-1">
@@ -193,7 +193,7 @@ export const UsersView: React.FC = () => {
         </div>
         <button
           onClick={handleOpenAdd}
-          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           <span>+ Add User</span>
@@ -202,10 +202,10 @@ export const UsersView: React.FC = () => {
 
       {/* Role Matrix Card */}
       <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="p-4 rounded-xl bg-[#1B4332]/5 border border-[#1B4332]/20 space-y-2">
+        <div className="p-4 rounded-xl bg-[#2D1F1E]/5 border border-[#2D1F1E]/20 space-y-2">
           <div className="flex items-center gap-2">
-            <Shield className="w-4 h-4 text-[#1B4332]" />
-            <h4 className="font-bold text-xs text-[#1B4332] uppercase tracking-wider">
+            <Shield className="w-4 h-4 text-[#2D1F1E]" />
+            <h4 className="font-bold text-xs text-[#2D1F1E] uppercase tracking-wider">
               Role: Master Administrator
             </h4>
           </div>
@@ -217,7 +217,7 @@ export const UsersView: React.FC = () => {
 
         <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200 space-y-2">
           <div className="flex items-center gap-2">
-            <Lock className="w-4 h-4 text-[#D97706]" />
+            <Lock className="w-4 h-4 text-[#F47B20]" />
             <h4 className="font-bold text-xs text-amber-900 uppercase tracking-wider">
               Role: Exhibition Stall User
             </h4>
@@ -239,7 +239,7 @@ export const UsersView: React.FC = () => {
               placeholder="Search user name or email..."
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+              className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             />
           </div>
 
@@ -257,7 +257,7 @@ export const UsersView: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-stone-200 bg-[#FBF9F5]/70 text-stone-500 font-semibold uppercase tracking-wider">
+              <tr className="border-b border-stone-200 bg-[#FFF9F0]/70 text-stone-500 font-semibold uppercase tracking-wider">
                 <th className="py-3 px-4">User Details</th>
                 <th className="py-3 px-4">System Role</th>
                 <th className="py-3 px-4">Assigned Exhibition</th>
@@ -273,7 +273,7 @@ export const UsersView: React.FC = () => {
                   <tr key={u.id} className="hover:bg-stone-50/70 transition-colors">
                     <td className="py-3.5 px-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-[#1B4332]/10 text-[#1B4332] font-bold text-xs flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full bg-[#2D1F1E]/10 text-[#2D1F1E] font-bold text-xs flex items-center justify-center">
                           {u.name.charAt(0)}
                         </div>
                         <div>
@@ -286,7 +286,7 @@ export const UsersView: React.FC = () => {
                       <span
                         className={`inline-block px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase ${
                           u.role === 'ADMIN'
-                            ? 'bg-[#1B4332]/10 text-[#1B4332]'
+                            ? 'bg-[#2D1F1E]/10 text-[#2D1F1E]'
                             : 'bg-amber-100 text-amber-900'
                         }`}
                       >
@@ -319,7 +319,7 @@ export const UsersView: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => handleOpenReset(u)}
-                          className="p-1.5 rounded-lg border border-stone-200 text-stone-600 hover:text-[#1B4332] hover:bg-stone-100 transition-colors"
+                          className="p-1.5 rounded-lg border border-stone-200 text-stone-600 hover:text-[#2D1F1E] hover:bg-stone-100 transition-colors"
                           title="Reset Password"
                         >
                           <KeyRound className="w-4 h-4" />
@@ -350,7 +350,7 @@ export const UsersView: React.FC = () => {
         maxWidth="md"
       >
         <form onSubmit={handleResetPassword} className="space-y-4">
-          <div className="rounded-xl bg-[#FBF9F5] border border-stone-200 p-3.5">
+          <div className="rounded-xl bg-[#FFF9F0] border border-stone-200 p-3.5">
             <p className="text-xs text-stone-700">
               Setting a new password for{' '}
               <span className="font-bold">{resetTarget?.name}</span> ({resetTarget?.email}).
@@ -373,7 +373,7 @@ export const UsersView: React.FC = () => {
               defaultVisible
               autoComplete="new-password"
               placeholder={`At least ${MIN_PASSWORD_LENGTH} characters`}
-              className="w-full px-3.5 pr-10 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 pr-10 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
             {resetPassword && describePasswordProblem(resetPassword) && (
               <p className="text-[11px] text-red-600 mt-1.5">
@@ -393,7 +393,7 @@ export const UsersView: React.FC = () => {
               defaultVisible
               autoComplete="new-password"
               placeholder="Re-enter the password"
-              className="w-full px-3.5 pr-10 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 pr-10 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
             {resetConfirm && resetConfirm !== resetPassword && (
               <p className="text-[11px] text-red-600 mt-1.5">Both passwords must match.</p>
@@ -411,7 +411,7 @@ export const UsersView: React.FC = () => {
             <button
               type="submit"
               disabled={isResetting}
-              className="px-4 py-2.5 rounded-xl bg-[#1B4332] text-white text-xs font-semibold hover:bg-[#143823] transition-colors disabled:opacity-60"
+              className="px-4 py-2.5 rounded-xl bg-[#2D1F1E] text-white text-xs font-semibold hover:bg-[#1F1514] transition-colors disabled:opacity-60"
             >
               {isResetting ? 'Resetting…' : 'Reset Password'}
             </button>
@@ -437,7 +437,7 @@ export const UsersView: React.FC = () => {
               value={name}
               onChange={e => setName(e.target.value)}
               placeholder="e.g. Ramesh Patel"
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
@@ -451,7 +451,7 @@ export const UsersView: React.FC = () => {
               value={email}
               onChange={e => setEmail(e.target.value)}
               placeholder="e.g. ramesh@divinefoods.com"
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
@@ -464,7 +464,7 @@ export const UsersView: React.FC = () => {
               onChange={setPassword}
               autoComplete="new-password"
               placeholder={editingUser ? 'Leave blank to keep current password' : 'Set a starting password'}
-              className="w-full px-3.5 pr-10 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 pr-10 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
@@ -473,7 +473,7 @@ export const UsersView: React.FC = () => {
             <select
               value={role}
               onChange={e => setRole(e.target.value as UserRole)}
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             >
               <option value="ADMIN">Master Administrator</option>
               <option value="EXHIBITION_USER">Exhibition User</option>
@@ -488,7 +488,7 @@ export const UsersView: React.FC = () => {
               <select
                 value={assignedExhibitionId}
                 onChange={e => setAssignedExhibitionId(e.target.value)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               >
                 <option value="">No specific exhibition (Flexible)</option>
                 {exhibitions.map(e => (
@@ -506,7 +506,7 @@ export const UsersView: React.FC = () => {
               id="userActive"
               checked={isActive}
               onChange={e => setIsActive(e.target.checked)}
-              className="rounded text-[#1B4332] focus:ring-[#1B4332] w-4 h-4 cursor-pointer"
+              className="rounded text-[#2D1F1E] focus:ring-[#2D1F1E] w-4 h-4 cursor-pointer"
             />
             <label htmlFor="userActive" className="text-xs font-medium text-stone-700 cursor-pointer">
               Active User Account
@@ -523,7 +523,7 @@ export const UsersView: React.FC = () => {
             </button>
             <button
               type="submit"
-              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs"
+              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs"
             >
               Save User
             </button>

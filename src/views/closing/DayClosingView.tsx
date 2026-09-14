@@ -74,10 +74,10 @@ export const DayClosingView: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
             Reconciliation & Drawer Audit
           </span>
-          <h1 className="text-2xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-0.5">
+          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
             Day Closing & Cash Reconciliation
           </h1>
           <p className="text-xs text-stone-500 mt-1">
@@ -89,7 +89,7 @@ export const DayClosingView: React.FC = () => {
       {/* Main Reconciliation Card */}
       <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs p-6 space-y-6">
         {/* Date & Stall Context Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-[#FBF9F5] border border-stone-200">
+        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-[#FFF9F0] border border-stone-200">
           <div className="flex items-center gap-4">
             <div>
               <label className="block text-[10px] uppercase font-bold text-stone-400 mb-1">
@@ -135,10 +135,10 @@ export const DayClosingView: React.FC = () => {
           {/* Sales Collections */}
           <div className="p-5 rounded-2xl bg-stone-50/60 border border-stone-200 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-stone-500 flex items-center gap-1.5">
-              <Receipt className="w-4 h-4 text-[#1B4332]" />
+              <Receipt className="w-4 h-4 text-[#2D1F1E]" />
               <span>Today's Total Sales</span>
             </h4>
-            <div className="text-2xl font-extrabold text-[#1B4332] font-['Outfit',sans-serif]">
+            <div className="text-2xl font-extrabold text-[#2D1F1E] font-['Outfit',sans-serif]">
               {formatINR(draftClosing.total_sales)}
             </div>
 
@@ -249,7 +249,7 @@ export const DayClosingView: React.FC = () => {
               value={notes}
               onChange={e => setNotes(e.target.value)}
               placeholder="e.g. ₹50 loose change adjustment, all registers balanced"
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden disabled:bg-stone-100"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden disabled:bg-stone-100"
             />
           </div>
 
@@ -263,7 +263,7 @@ export const DayClosingView: React.FC = () => {
               <button
                 type="button"
                 onClick={handleConfirmClosing}
-                className="px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs transition-colors flex items-center gap-2 cursor-pointer"
+                className="px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors flex items-center gap-2 cursor-pointer"
               >
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Confirm Day Closing</span>
@@ -276,8 +276,8 @@ export const DayClosingView: React.FC = () => {
       {/* Historical Day Closings Table */}
       <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs overflow-hidden">
         <div className="p-4 border-b border-stone-100 flex items-center justify-between">
-          <h3 className="text-sm font-bold text-[#2C1810] font-['Outfit',sans-serif] flex items-center gap-2">
-            <History className="w-4 h-4 text-[#1B4332]" />
+          <h3 className="text-sm font-bold text-[#2D2523] font-['Outfit',sans-serif] flex items-center gap-2">
+            <History className="w-4 h-4 text-[#2D1F1E]" />
             <span>Historical Day Closings</span>
           </h3>
           <span className="text-xs text-stone-500 font-medium">
@@ -288,7 +288,7 @@ export const DayClosingView: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-stone-200 bg-[#FBF9F5]/70 text-stone-500 font-semibold uppercase tracking-wider">
+              <tr className="border-b border-stone-200 bg-[#FFF9F0]/70 text-stone-500 font-semibold uppercase tracking-wider">
                 <th className="py-3 px-4">Date</th>
                 <th className="py-3 px-4">Exhibition / Venue</th>
                 <th className="py-3 px-4 text-right">Total Sales</th>
@@ -306,7 +306,7 @@ export const DayClosingView: React.FC = () => {
                   <tr key={c.id} className="hover:bg-stone-50/70 transition-colors">
                     <td className="py-3.5 px-4 font-bold text-stone-900">{formatDate(c.date)}</td>
                     <td className="py-3.5 px-4 text-stone-700">{exh?.name || 'Main Store'}</td>
-                    <td className="py-3.5 px-4 text-right font-bold text-[#1B4332] font-mono">
+                    <td className="py-3.5 px-4 text-right font-bold text-[#2D1F1E] font-mono">
                       {formatINR(c.total_sales)}
                     </td>
                     <td className="py-3.5 px-4 text-right text-stone-600 font-mono">

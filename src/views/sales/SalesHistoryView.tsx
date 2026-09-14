@@ -102,10 +102,10 @@ export const SalesHistoryView: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
             Billing & Invoices
           </span>
-          <h1 className="text-2xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-0.5">
+          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
             Sales & Orders History
           </h1>
           <p className="text-xs text-stone-500 mt-1">
@@ -133,7 +133,7 @@ export const SalesHistoryView: React.FC = () => {
         </div>
         <div className="p-4 rounded-xl bg-white border border-stone-200 shadow-xs">
           <span className="text-[10px] uppercase font-bold text-stone-400 block">Filtered Revenue</span>
-          <span className="text-xl font-bold text-[#1B4332] font-['Outfit',sans-serif]">
+          <span className="text-xl font-bold text-[#2D1F1E] font-['Outfit',sans-serif]">
             {formatINR(totalSalesRevenue)}
           </span>
         </div>
@@ -156,7 +156,7 @@ export const SalesHistoryView: React.FC = () => {
               placeholder="Search Invoice #, Customer Name, or Phone..."
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+              className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             />
           </div>
 
@@ -202,7 +202,7 @@ export const SalesHistoryView: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-stone-200 bg-[#FBF9F5]/70 text-stone-500 font-semibold uppercase tracking-wider">
+              <tr className="border-b border-stone-200 bg-[#FFF9F0]/70 text-stone-500 font-semibold uppercase tracking-wider">
                 <th className="py-3 px-4">Invoice No</th>
                 <th className="py-3 px-4">Date & Time</th>
                 <th className="py-3 px-4">Customer</th>
@@ -259,7 +259,7 @@ export const SalesHistoryView: React.FC = () => {
                           onClick={() => setSelectedSaleForInvoice(sale)}
                           className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-stone-200 text-stone-700 hover:bg-stone-100 transition-colors font-semibold text-xs cursor-pointer"
                         >
-                          <Receipt className="w-3.5 h-3.5 text-[#1B4332]" />
+                          <Receipt className="w-3.5 h-3.5 text-[#2D1F1E]" />
                           <span>Invoice</span>
                         </button>
                       </td>

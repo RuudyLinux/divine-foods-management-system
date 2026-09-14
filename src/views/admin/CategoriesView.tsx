@@ -108,10 +108,10 @@ export const CategoriesView: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
             Catalog Hierarchy
           </span>
-          <h1 className="text-2xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-0.5">
+          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
             Categories
           </h1>
           <p className="text-xs text-stone-500 mt-1">
@@ -120,7 +120,7 @@ export const CategoriesView: React.FC = () => {
         </div>
         <button
           onClick={handleOpenAdd}
-          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           <span>Add Category</span>
@@ -138,7 +138,7 @@ export const CategoriesView: React.FC = () => {
               placeholder="Search category name or description..."
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+              className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             />
           </div>
           <span className="text-xs text-stone-500 font-medium">
@@ -150,7 +150,7 @@ export const CategoriesView: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-stone-200 bg-[#FBF9F5]/70 text-stone-500 font-semibold uppercase tracking-wider">
+              <tr className="border-b border-stone-200 bg-[#FFF9F0]/70 text-stone-500 font-semibold uppercase tracking-wider">
                 <th className="py-3 px-4">Category</th>
                 <th className="py-3 px-4">Description</th>
                 <th className="py-3 px-4 text-center">Products</th>
@@ -191,7 +191,7 @@ export const CategoriesView: React.FC = () => {
                         {cat.description || '-'}
                       </td>
                       <td className="py-3.5 px-4 text-center">
-                        <span className="inline-block px-2.5 py-1 bg-[#1B4332]/10 text-[#1B4332] rounded-full font-bold">
+                        <span className="inline-block px-2.5 py-1 bg-[#2D1F1E]/10 text-[#2D1F1E] rounded-full font-bold">
                           {productCount} items
                         </span>
                       </td>
@@ -270,7 +270,7 @@ export const CategoriesView: React.FC = () => {
               value={name}
               onChange={e => setName(e.target.value)}
               placeholder="e.g. Ready To Cook, Premix, Roasted Products"
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             />
           </div>
 
@@ -281,7 +281,7 @@ export const CategoriesView: React.FC = () => {
               value={description}
               onChange={e => setDescription(e.target.value)}
               placeholder="Briefly describe products under this category..."
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             />
           </div>
 
@@ -294,7 +294,7 @@ export const CategoriesView: React.FC = () => {
               value={imageUrl}
               onChange={e => setImageUrl(e.target.value)}
               placeholder="https://..."
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             />
           </div>
 
@@ -304,7 +304,7 @@ export const CategoriesView: React.FC = () => {
               id="catActive"
               checked={isActive}
               onChange={e => setIsActive(e.target.checked)}
-              className="rounded text-[#1B4332] focus:ring-[#1B4332] w-4 h-4 cursor-pointer"
+              className="rounded text-[#2D1F1E] focus:ring-[#2D1F1E] w-4 h-4 cursor-pointer"
             />
             <label htmlFor="catActive" className="text-xs font-medium text-stone-700 cursor-pointer">
               Active Category (visible in sales and allocation menus)
@@ -321,7 +321,7 @@ export const CategoriesView: React.FC = () => {
             </button>
             <button
               type="submit"
-              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs transition-colors"
+              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors"
             >
               {editingCategory ? 'Update Category' : 'Save Category'}
             </button>

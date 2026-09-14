@@ -62,7 +62,7 @@ export const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
           className={`px-4 py-2 rounded-xl text-sm font-semibold text-white shadow-xs transition-colors disabled:opacity-50 ${
             isDanger
               ? 'bg-rose-600 hover:bg-rose-700'
-              : 'bg-[#1B4332] hover:bg-[#143823]'
+              : 'bg-[#2D1F1E] hover:bg-[#1F1514]'
           }`}
         >
           {isLoading ? 'Processing...' : confirmLabel}

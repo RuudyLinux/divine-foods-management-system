@@ -159,7 +159,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
       : monthlySalesData;
 
   // Revenue share per category, from what actually sold.
-  const CATEGORY_COLORS = ['#1B4332', '#D97706', '#E85D04', '#2D6A4F', '#40916C', '#B45309'];
+  const CATEGORY_COLORS = ['#2D1F1E', '#F47B20', '#F6A623', '#4A3634', '#6B524D', '#C2600F'];
   const categoryRevenue = new Map<string, number>();
   for (const sale of sales) {
     for (const item of sale.items || []) {
@@ -212,10 +212,10 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
       {/* Welcome Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
             Executive Cockpit
           </span>
-          <h1 className="text-2xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-0.5">
+          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
             Good Morning, Admin
           </h1>
           <p className="text-xs text-stone-500 mt-1">
@@ -225,14 +225,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
         <div className="flex items-center gap-2.5">
           <button
             onClick={() => onNavigate('production')}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] transition-colors shadow-xs"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] transition-colors shadow-xs"
           >
             <Factory className="w-3.5 h-3.5" />
             <span>+ New Production</span>
           </button>
           <button
             onClick={() => onNavigate('new-sale')}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-[#1B4332] bg-[#1B4332]/10 hover:bg-[#1B4332]/20 border border-[#1B4332]/20 transition-colors"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-[#2D1F1E] bg-[#2D1F1E]/10 hover:bg-[#2D1F1E]/20 border border-[#2D1F1E]/20 transition-colors"
           >
             <span>POS New Sale</span>
           </button>
@@ -240,7 +240,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
       </div>
 
       {/* 6 High-Impact KPI Cards specified in Prompt */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-4">
         <StatCard
           title="Total Products"
           value={kpis.totalProducts}
@@ -298,7 +298,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
         <div className="lg:col-span-8 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
             <div>
-              <h3 className="text-base font-bold text-[#2C1810] font-['Outfit',sans-serif]">
+              <h3 className="text-base font-bold text-[#2D2523] font-['Outfit',sans-serif]">
                 Sales & Profit Growth
               </h3>
               <p className="text-xs text-stone-500 mt-0.5">
@@ -313,7 +313,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
                   onClick={() => setSalesTimeframe(tab)}
                   className={`px-3 py-1 text-xs font-semibold rounded-lg capitalize transition-all ${
                     salesTimeframe === tab
-                      ? 'bg-white text-[#1B4332] shadow-xs'
+                      ? 'bg-white text-[#2D1F1E] shadow-xs'
                       : 'text-stone-500 hover:text-stone-900'
                   }`}
                 >
@@ -326,10 +326,10 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
           <div className="h-72 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartData} margin={{ top: 10, right: 10, left: -15, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#EFECE6" />
-                <XAxis dataKey="label" stroke="#8C827A" fontSize={11} tickLine={false} />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#F7F0E5" />
+                <XAxis dataKey="label" stroke="#9A8F88" fontSize={11} tickLine={false} />
                 <YAxis
-                  stroke="#8C827A"
+                  stroke="#9A8F88"
                   fontSize={11}
                   tickLine={false}
                   tickFormatter={val => `₹${val / 1000}k`}
@@ -339,7 +339,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
                   contentStyle={{
                     backgroundColor: '#FFFFFF',
                     borderRadius: '12px',
-                    borderColor: '#E8E2D6',
+                    borderColor: '#E8DED2',
                     fontSize: '12px',
                   }}
                 />
@@ -347,14 +347,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
                 <Bar
                   dataKey="sales"
                   name="Sales Revenue"
-                  fill="#1B4332"
+                  fill="#2D1F1E"
                   radius={[4, 4, 0, 0]}
                   maxBarSize={40}
                 />
                 <Bar
                   dataKey="profit"
                   name="Net Profit"
-                  fill="#D97706"
+                  fill="#F47B20"
                   radius={[4, 4, 0, 0]}
                   maxBarSize={40}
                 />
@@ -366,7 +366,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
         {/* Category Contribution Donut */}
         <div className="lg:col-span-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs flex flex-col justify-between">
           <div>
-            <h3 className="text-base font-bold text-[#2C1810] font-['Outfit',sans-serif]">
+            <h3 className="text-base font-bold text-[#2D2523] font-['Outfit',sans-serif]">
               Category Share
             </h3>
             <p className="text-xs text-stone-500 mt-0.5">Sales distribution across segments</p>
@@ -416,14 +416,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
         <div className="lg:col-span-6 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-base font-bold text-[#2C1810] font-['Outfit',sans-serif]">
+              <h3 className="text-base font-bold text-[#2D2523] font-['Outfit',sans-serif]">
                 Top Selling Products
               </h3>
               <p className="text-xs text-stone-500 mt-0.5">Top volume performers this week</p>
             </div>
             <button
               onClick={() => onNavigate('products')}
-              className="text-xs font-semibold text-[#1B4332] hover:underline flex items-center gap-1"
+              className="text-xs font-semibold text-[#2D1F1E] hover:underline flex items-center gap-1"
             >
               <span>View All</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -437,7 +437,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
                 className="flex items-center justify-between p-3 rounded-xl bg-stone-50/70 border border-stone-100 hover:border-stone-200 transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <span className="w-6 h-6 rounded-full bg-[#1B4332]/10 text-[#1B4332] font-bold text-xs flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full bg-[#2D1F1E]/10 text-[#2D1F1E] font-bold text-xs flex items-center justify-center">
                     {idx + 1}
                   </span>
                   <div>
@@ -446,12 +446,12 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
                   </div>
                 </div>
                 <div className="text-right">
-                  <span className="text-xs font-bold text-[#1B4332]">
+                  <span className="text-xs font-bold text-[#2D1F1E]">
                     {formatINR(prod.revenue)}
                   </span>
                   <div className="w-24 bg-stone-200 h-1.5 rounded-full overflow-hidden mt-1">
                     <div
-                      className="bg-[#1B4332] h-full rounded-full"
+                      className="bg-[#2D1F1E] h-full rounded-full"
                       style={{ width: `${(prod.units / 100) * 100}%` }}
                     />
                   </div>
@@ -465,7 +465,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
         <div className="lg:col-span-6 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-base font-bold text-[#2C1810] font-['Outfit',sans-serif]">
+              <h3 className="text-base font-bold text-[#2D2523] font-['Outfit',sans-serif]">
                 Exhibition Financials (P&L)
               </h3>
               <p className="text-xs text-stone-500 mt-0.5">
@@ -474,7 +474,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
             </div>
             <button
               onClick={() => onNavigate('exhibitions')}
-              className="text-xs font-semibold text-[#1B4332] hover:underline flex items-center gap-1"
+              className="text-xs font-semibold text-[#2D1F1E] hover:underline flex items-center gap-1"
             >
               <span>Exhibitions Hub</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -487,10 +487,10 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
                 data={exhibitionFinancials}
                 margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
               >
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#EFECE6" />
-                <XAxis dataKey="name" stroke="#8C827A" fontSize={11} tickLine={false} />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#F7F0E5" />
+                <XAxis dataKey="name" stroke="#9A8F88" fontSize={11} tickLine={false} />
                 <YAxis
-                  stroke="#8C827A"
+                  stroke="#9A8F88"
                   fontSize={11}
                   tickLine={false}
                   tickFormatter={val => `₹${val / 1000}k`}
@@ -500,14 +500,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
                   contentStyle={{
                     backgroundColor: '#FFFFFF',
                     borderRadius: '12px',
-                    borderColor: '#E8E2D6',
+                    borderColor: '#E8DED2',
                     fontSize: '12px',
                   }}
                 />
                 <Legend wrapperStyle={{ fontSize: '12px' }} />
-                <Bar dataKey="Revenue" name="Revenue" fill="#1B4332" radius={[3, 3, 0, 0]} />
-                <Bar dataKey="Expenses" name="Expenses" fill="#E85D04" radius={[3, 3, 0, 0]} />
-                <Bar dataKey="NetProfit" name="Net Profit" fill="#2D6A4F" radius={[3, 3, 0, 0]} />
+                <Bar dataKey="Revenue" name="Revenue" fill="#2D1F1E" radius={[3, 3, 0, 0]} />
+                <Bar dataKey="Expenses" name="Expenses" fill="#F6A623" radius={[3, 3, 0, 0]} />
+                <Bar dataKey="NetProfit" name="Net Profit" fill="#4A3634" radius={[3, 3, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -522,7 +522,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
               <AlertTriangle className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-[#2C1810] font-['Outfit',sans-serif]">
+              <h3 className="text-base font-bold text-[#2D2523] font-['Outfit',sans-serif]">
                 Inventory Restock Watch
               </h3>
               <p className="text-xs text-stone-500">
@@ -574,7 +574,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) =>
                     <td className="py-3 px-3 text-right">
                       <button
                         onClick={() => onNavigate('production')}
-                        className="text-xs font-semibold text-[#1B4332] hover:underline"
+                        className="text-xs font-semibold text-[#2D1F1E] hover:underline"
                       >
                         Produce Batch
                       </button>

@@ -193,10 +193,10 @@ export const SettingsView: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
             Configuration & Backups
           </span>
-          <h1 className="text-2xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-0.5">
+          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
             System Settings
           </h1>
           <p className="text-xs text-stone-500 mt-1">
@@ -207,8 +207,8 @@ export const SettingsView: React.FC = () => {
 
       {/* Your Password */}
       <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs p-6">
-        <h3 className="text-base font-bold text-[#2C1810] font-['Outfit',sans-serif] mb-1 flex items-center gap-2">
-          <KeyRound className="w-4 h-4 text-[#1B4332]" />
+        <h3 className="text-base font-bold text-[#2D2523] font-['Outfit',sans-serif] mb-1 flex items-center gap-2">
+          <KeyRound className="w-4 h-4 text-[#2D1F1E]" />
           <span>Your Password</span>
         </h3>
         <p className="text-xs text-stone-500 mb-6">
@@ -226,7 +226,7 @@ export const SettingsView: React.FC = () => {
               required
               autoComplete="current-password"
               placeholder="Your password now"
-              className="w-full px-3.5 pr-10 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 pr-10 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
@@ -238,7 +238,7 @@ export const SettingsView: React.FC = () => {
               required
               autoComplete="new-password"
               placeholder={`At least ${MIN_PASSWORD_LENGTH} characters`}
-              className="w-full px-3.5 pr-10 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 pr-10 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
@@ -252,7 +252,7 @@ export const SettingsView: React.FC = () => {
               required
               autoComplete="new-password"
               placeholder="Re-enter new password"
-              className="w-full px-3.5 pr-10 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 pr-10 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
@@ -260,7 +260,7 @@ export const SettingsView: React.FC = () => {
             <button
               type="submit"
               disabled={isChangingPassword}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#1B4332] text-white text-xs font-semibold hover:bg-[#143823] transition-colors disabled:opacity-60"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#2D1F1E] text-white text-xs font-semibold hover:bg-[#1F1514] transition-colors disabled:opacity-60"
             >
               <KeyRound className="w-3.5 h-3.5" />
               <span>{isChangingPassword ? 'Changing…' : 'Change Password'}</span>
@@ -277,8 +277,8 @@ export const SettingsView: React.FC = () => {
 
       {/* Company Logo */}
       <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs p-6">
-        <h3 className="text-base font-bold text-[#2C1810] font-['Outfit',sans-serif] mb-1 flex items-center gap-2">
-          <ImageIcon className="w-4 h-4 text-[#1B4332]" />
+        <h3 className="text-base font-bold text-[#2D2523] font-['Outfit',sans-serif] mb-1 flex items-center gap-2">
+          <ImageIcon className="w-4 h-4 text-[#2D1F1E]" />
           <span>Company Logo</span>
         </h3>
         <p className="text-xs text-stone-500 mb-6">
@@ -295,11 +295,11 @@ export const SettingsView: React.FC = () => {
           </div>
 
           <div className="flex-1 min-w-0">
-            <div className="rounded-xl border border-stone-200 bg-[#FBF9F5] p-3 mb-4">
+            <div className="rounded-xl border border-stone-200 bg-[#FFF9F0] p-3 mb-4">
               <p className="text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-2">
                 Preview in sidebar
               </p>
-              <div className="rounded-lg bg-[#1B4332] px-3 py-2.5">
+              <div className="rounded-lg bg-[#2D1F1E] px-3 py-2.5">
                 <DivineLogo size="sm" variant="white" />
               </div>
             </div>
@@ -316,7 +316,7 @@ export const SettingsView: React.FC = () => {
                 type="button"
                 disabled={isUploadingLogo}
                 onClick={() => logoInputRef.current?.click()}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#1B4332] text-white text-xs font-semibold hover:bg-[#143823] transition-colors disabled:opacity-60"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#2D1F1E] text-white text-xs font-semibold hover:bg-[#1F1514] transition-colors disabled:opacity-60"
               >
                 <Upload className="w-3.5 h-3.5" />
                 <span>{isUploadingLogo ? 'Processing…' : 'Upload New Logo'}</span>
@@ -346,8 +346,8 @@ export const SettingsView: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Column: Company & Invoice Settings */}
         <div className="lg:col-span-8 bg-white rounded-2xl border border-stone-200/80 shadow-xs p-6">
-          <h3 className="text-base font-bold text-[#2C1810] font-['Outfit',sans-serif] mb-1 flex items-center gap-2">
-            <Building className="w-4 h-4 text-[#1B4332]" />
+          <h3 className="text-base font-bold text-[#2D2523] font-['Outfit',sans-serif] mb-1 flex items-center gap-2">
+            <Building className="w-4 h-4 text-[#2D1F1E]" />
             <span>Company Profile & Receipt Branding</span>
           </h3>
           <p className="text-xs text-stone-500 mb-6">
@@ -365,7 +365,7 @@ export const SettingsView: React.FC = () => {
                   required
                   value={companyName}
                   onChange={e => setCompanyName(e.target.value)}
-                  className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                  className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
                 />
               </div>
 
@@ -375,7 +375,7 @@ export const SettingsView: React.FC = () => {
                   type="text"
                   value={tagline}
                   onChange={e => setTagline(e.target.value)}
-                  className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                  className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
                 />
               </div>
             </div>
@@ -388,7 +388,7 @@ export const SettingsView: React.FC = () => {
                 type="text"
                 value={address}
                 onChange={e => setAddress(e.target.value)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               />
             </div>
 
@@ -399,7 +399,7 @@ export const SettingsView: React.FC = () => {
                   type="text"
                   value={phone}
                   onChange={e => setPhone(e.target.value)}
-                  className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                  className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
                 />
               </div>
 
@@ -409,7 +409,7 @@ export const SettingsView: React.FC = () => {
                   type="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                  className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
                 />
               </div>
 
@@ -422,7 +422,7 @@ export const SettingsView: React.FC = () => {
                   value={gstin}
                   onChange={e => setGstin(e.target.value)}
                   placeholder="24AAAAA0000A1Z5"
-                  className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden font-mono"
+                  className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden font-mono"
                 />
               </div>
             </div>
@@ -435,7 +435,7 @@ export const SettingsView: React.FC = () => {
                 rows={2}
                 value={invoiceFooterNote}
                 onChange={e => setInvoiceFooterNote(e.target.value)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               />
             </div>
 
@@ -448,14 +448,14 @@ export const SettingsView: React.FC = () => {
                 min={1}
                 value={lowStockThreshold}
                 onChange={e => setLowStockThreshold(Number(e.target.value))}
-                className="w-32 px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden font-bold"
+                className="w-32 px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden font-bold"
               />
             </div>
 
             <div className="pt-4 border-t border-stone-100 flex justify-end">
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs cursor-pointer"
               >
                 <Save className="w-4 h-4" />
                 <span>Save Company Profile</span>
@@ -467,8 +467,8 @@ export const SettingsView: React.FC = () => {
         {/* Right Column: Database Maintenance & JSON Backup */}
         <div className="lg:col-span-4 space-y-6">
           <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs p-6 space-y-4">
-            <h3 className="text-base font-bold text-[#2C1810] font-['Outfit',sans-serif] flex items-center gap-2">
-              <Database className="w-4 h-4 text-[#1B4332]" />
+            <h3 className="text-base font-bold text-[#2D2523] font-['Outfit',sans-serif] flex items-center gap-2">
+              <Database className="w-4 h-4 text-[#2D1F1E]" />
               <span>Data & Backup Engine</span>
             </h3>
             <p className="text-xs text-stone-500">
@@ -500,12 +500,12 @@ export const SettingsView: React.FC = () => {
                 onClick={handleBackupDatabase}
                 className="w-full py-2.5 px-3 rounded-xl border border-stone-200 hover:bg-stone-50 font-semibold text-xs text-stone-800 flex items-center justify-center gap-2 cursor-pointer transition-colors"
               >
-                <Download className="w-4 h-4 text-[#1B4332]" />
+                <Download className="w-4 h-4 text-[#2D1F1E]" />
                 <span>Download Database JSON</span>
               </button>
 
               <label className="w-full py-2.5 px-3 rounded-xl border border-stone-200 hover:bg-stone-50 font-semibold text-xs text-stone-800 flex items-center justify-center gap-2 cursor-pointer transition-colors">
-                <Upload className="w-4 h-4 text-[#D97706]" />
+                <Upload className="w-4 h-4 text-[#F47B20]" />
                 <span>Restore from JSON File</span>
                 <input
                   type="file"

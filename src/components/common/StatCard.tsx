@@ -15,6 +15,19 @@ interface StatCardProps {
   onClick?: () => void;
 }
 
+/**
+ * A single figure with its label. Flat tints rather than gradients, and the
+ * label wraps instead of truncating so a heading like "Active Exhibitions" can
+ * still be read at narrow widths.
+ */
+const ACCENTS = {
+  green: { icon: 'bg-[#287A4B]/10 text-[#287A4B] border-[#287A4B]/20', strip: 'stat-accent-green' },
+  amber: { icon: 'bg-[#F47B20]/12 text-[#C2600F] border-[#F47B20]/25', strip: 'stat-accent-amber' },
+  brown: { icon: 'bg-[#2D1F1E]/08 text-[#2D1F1E] border-[#2D1F1E]/18', strip: 'stat-accent-brown' },
+  orange: { icon: 'bg-[#FFB81C]/16 text-[#A8690C] border-[#FFB81C]/35', strip: 'stat-accent-orange' },
+  blue: { icon: 'bg-[#3F6B8C]/10 text-[#3F6B8C] border-[#3F6B8C]/22', strip: 'stat-accent-blue' },
+} as const;
+
 export const StatCard: React.FC<StatCardProps> = ({
   title,
   value,
@@ -25,35 +38,7 @@ export const StatCard: React.FC<StatCardProps> = ({
   className = '',
   onClick,
 }) => {
-  const accentMap = {
-    green: {
-      icon: 'bg-gradient-to-br from-emerald-50 to-emerald-100/80 text-emerald-700 border-emerald-200/60',
-      strip: 'stat-accent-green',
-      glow: 'hover:shadow-[0_4px_20px_rgba(16,185,129,0.1)]',
-    },
-    amber: {
-      icon: 'bg-gradient-to-br from-amber-50 to-amber-100/80 text-amber-700 border-amber-200/60',
-      strip: 'stat-accent-amber',
-      glow: 'hover:shadow-[0_4px_20px_rgba(217,119,6,0.1)]',
-    },
-    brown: {
-      icon: 'bg-gradient-to-br from-stone-50 to-stone-100/80 text-[#1B4332] border-[#1B4332]/15',
-      strip: 'stat-accent-brown',
-      glow: 'hover:shadow-[0_4px_20px_rgba(44,24,16,0.08)]',
-    },
-    orange: {
-      icon: 'bg-gradient-to-br from-orange-50 to-orange-100/80 text-orange-700 border-orange-200/60',
-      strip: 'stat-accent-orange',
-      glow: 'hover:shadow-[0_4px_20px_rgba(234,88,12,0.1)]',
-    },
-    blue: {
-      icon: 'bg-gradient-to-br from-sky-50 to-sky-100/80 text-sky-700 border-sky-200/60',
-      strip: 'stat-accent-blue',
-      glow: 'hover:shadow-[0_4px_20px_rgba(59,130,246,0.1)]',
-    },
-  };
-
-  const accent = accentMap[accentColor];
+  const accent = ACCENTS[accentColor];
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (onClick && (e.key === 'Enter' || e.key === ' ')) {
@@ -68,42 +53,38 @@ export const StatCard: React.FC<StatCardProps> = ({
       onKeyDown={onClick ? handleKeyDown : undefined}
       tabIndex={onClick ? 0 : undefined}
       role={onClick ? 'button' : undefined}
-      className={`glass-card p-5 ${accent.strip} ${accent.glow} ${
-        onClick
-          ? 'cursor-pointer hover-lift focus:outline-hidden focus-ring active:scale-[0.98]'
-          : ''
+      className={`rounded-[14px] border border-[#E8DED2] bg-white p-4 ${accent.strip} ${
+        onClick ? 'cursor-pointer transition-shadow hover:shadow-[0_4px_10px_rgba(45,31,30,0.07)] focus-ring' : ''
       } ${className}`}
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
-          <p className="text-[11px] font-bold uppercase tracking-wider text-stone-500 truncate">
+          <p className="text-[11px] font-semibold uppercase leading-tight tracking-[0.05em] text-[#756B66]">
             {title}
           </p>
-          <h3 className="text-2xl font-bold text-[#2C1810] mt-1.5 tracking-tight font-['Outfit',sans-serif] truncate">
+          <h3 className="mt-1.5 font-['Outfit',sans-serif] text-[22px] font-bold leading-tight tracking-tight text-[#2D2523]">
             {value}
           </h3>
-          {subtitle && (
-            <p className="text-xs text-stone-500 mt-1 truncate">{subtitle}</p>
-          )}
+          {subtitle && <p className="mt-1 text-xs leading-snug text-[#756B66]">{subtitle}</p>}
           {trend && (
-            <div className="flex items-center gap-1.5 mt-2">
+            <div className="mt-2 flex flex-wrap items-center gap-1.5">
               <span
-                className={`inline-flex items-center gap-0.5 text-xs font-semibold px-1.5 py-0.5 rounded-md ${
+                className={`inline-flex items-center gap-0.5 rounded-md px-1.5 py-0.5 text-[11px] font-semibold ${
                   trend.isPositive
-                    ? 'text-emerald-700 bg-emerald-50'
-                    : 'text-rose-700 bg-rose-50'
+                    ? 'bg-[#287A4B]/10 text-[#1F5E39]'
+                    : 'bg-[#C94B3C]/10 text-[#A93B2E]'
                 }`}
               >
                 {trend.isPositive ? '↑' : '↓'} {trend.value}
               </span>
-              <span className="text-[11px] text-stone-400">vs target</span>
             </div>
           )}
         </div>
         <div
-          className={`w-11 h-11 rounded-xl flex items-center justify-center border shrink-0 ${accent.icon}`}
+          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border ${accent.icon}`}
+          aria-hidden="true"
         >
-          <Icon className="w-5 h-5" />
+          <Icon className="h-[18px] w-[18px]" />
         </div>
       </div>
     </div>

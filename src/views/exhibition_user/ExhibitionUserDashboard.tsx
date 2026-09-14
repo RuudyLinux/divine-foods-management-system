@@ -66,7 +66,7 @@ export const ExhibitionUserDashboard: React.FC<ExhibitionUserDashboardProps> = (
   return (
     <div className="space-y-6 animate-in fade-in duration-150">
       {/* Stall Banner Header */}
-      <div className="bg-[#1B4332] text-white p-6 rounded-2xl shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-[#2D1F1E] text-white p-6 rounded-2xl shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
             <span className="px-2.5 py-0.5 rounded-full bg-amber-400 text-stone-900 font-bold text-[10px] tracking-wider uppercase">
@@ -167,7 +167,7 @@ export const ExhibitionUserDashboard: React.FC<ExhibitionUserDashboardProps> = (
       <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs p-5 space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-base font-bold text-[#2C1810] font-['Outfit',sans-serif]">
+            <h3 className="text-base font-bold text-[#2D2523] font-['Outfit',sans-serif]">
               Stall Stock & Inventory Status
             </h3>
             <p className="text-xs text-stone-500">
@@ -176,7 +176,7 @@ export const ExhibitionUserDashboard: React.FC<ExhibitionUserDashboardProps> = (
           </div>
           <button
             onClick={() => onNavigate('new-sale')}
-            className="text-xs font-semibold text-[#1B4332] hover:underline flex items-center gap-1"
+            className="text-xs font-semibold text-[#2D1F1E] hover:underline flex items-center gap-1"
           >
             <span>Open POS Terminal</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -186,7 +186,7 @@ export const ExhibitionUserDashboard: React.FC<ExhibitionUserDashboardProps> = (
         <div className="overflow-x-auto border border-stone-200 rounded-xl">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-stone-200 bg-[#FBF9F5] text-stone-500 font-semibold uppercase">
+              <tr className="border-b border-stone-200 bg-[#FFF9F0] text-stone-500 font-semibold uppercase">
                 <th className="py-2.5 px-3">Product Name</th>
                 <th className="py-2.5 px-3 text-center">Allocated</th>
                 <th className="py-2.5 px-3 text-center">Sold</th>
@@ -207,7 +207,7 @@ export const ExhibitionUserDashboard: React.FC<ExhibitionUserDashboardProps> = (
                     <td className="py-3 px-3 text-center font-medium text-stone-600">
                       {alloc.quantity_allocated}
                     </td>
-                    <td className="py-3 px-3 text-center font-bold text-[#1B4332]">
+                    <td className="py-3 px-3 text-center font-bold text-[#2D1F1E]">
                       {alloc.quantity_sold}
                     </td>
                     <td className="py-3 px-3 text-center">
@@ -226,7 +226,7 @@ export const ExhibitionUserDashboard: React.FC<ExhibitionUserDashboardProps> = (
                       <button
                         onClick={() => onNavigate('new-sale')}
                         disabled={isOut}
-                        className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#1B4332]/10 text-[#1B4332] hover:bg-[#1B4332]/20 disabled:opacity-40 transition-colors"
+                        className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#2D1F1E]/10 text-[#2D1F1E] hover:bg-[#2D1F1E]/20 disabled:opacity-40 transition-colors"
                       >
                         Sell Unit
                       </button>
@@ -242,12 +242,12 @@ export const ExhibitionUserDashboard: React.FC<ExhibitionUserDashboardProps> = (
       {/* Recent Stall Sales */}
       <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs p-5 space-y-4">
         <div className="flex items-center justify-between">
-          <h3 className="text-base font-bold text-[#2C1810] font-['Outfit',sans-serif]">
+          <h3 className="text-base font-bold text-[#2D2523] font-['Outfit',sans-serif]">
             Recent Stall Receipts
           </h3>
           <button
             onClick={() => onNavigate('sales-history')}
-            className="text-xs font-semibold text-[#1B4332] hover:underline"
+            className="text-xs font-semibold text-[#2D1F1E] hover:underline"
           >
             View All Sales
           </button>
@@ -267,7 +267,7 @@ export const ExhibitionUserDashboard: React.FC<ExhibitionUserDashboardProps> = (
                 </p>
               </div>
               <div className="text-right flex items-center gap-3">
-                <span className="font-bold text-[#1B4332] font-mono text-sm">
+                <span className="font-bold text-[#2D1F1E] font-mono text-sm">
                   {formatINR(sale.total_amount)}
                 </span>
                 <button

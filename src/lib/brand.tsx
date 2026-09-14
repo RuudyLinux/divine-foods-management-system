@@ -1,17 +1,28 @@
 import React, { useSyncExternalStore } from 'react';
 import { db } from './db';
 
+/**
+ * The Divine Foods palette, taken from the logo: deep chocolate carries the
+ * brand, saffron and gold mark actions and status, cream is the ground.
+ * Keep these in step with the CSS custom properties in styles/design-tokens.css.
+ */
 export const BRAND_COLORS = {
-  deepBrown: '#2C1810',
-  darkGreen: '#1B4332',
-  leafGreen: '#2D6A4F',
-  accentGreen: '#40916C',
-  warmOrange: '#D97706',
-  accentOrange: '#E85D04',
-  cream: '#FBF9F5',
+  chocolate: '#2D1F1E',
+  chocolateDark: '#1F1514',
+  chocolateLight: '#4A3634',
+  saffron: '#F47B20',
+  saffronDark: '#C2600F',
+  gold: '#FFB81C',
+  warmGold: '#F6A623',
+  cream: '#FFF9F0',
+  creamSoft: '#F7F0E5',
   cardBg: '#FFFFFF',
-  border: '#E8E2D6',
-  mutedText: '#6C635B',
+  border: '#E8DED2',
+  textPrimary: '#2D2523',
+  mutedText: '#756B66',
+  success: '#287A4B',
+  warning: '#D98A16',
+  danger: '#C94B3C',
 };
 
 /**
@@ -134,7 +145,7 @@ export const DivineLogo: React.FC<LogoProps> = ({
       <div
         className={`relative flex items-center justify-center shrink-0 overflow-hidden rounded-xl bg-white ${
           iconSizes[size]
-        } shadow-sm border ${isWhite ? 'border-white/25' : 'border-[#E8E2D6]'}`}
+        } shadow-sm border ${isWhite ? 'border-white/25' : 'border-[#E8DED2]'}`}
       >
         <img
           src={logoSrc}
@@ -150,16 +161,16 @@ export const DivineLogo: React.FC<LogoProps> = ({
           <div className="flex items-baseline gap-1.5">
             <span
               className={`font-['Outfit',sans-serif] font-extrabold tracking-tight uppercase ${textSizes[size]} ${
-                isWhite ? 'text-white' : 'text-[#2C1810]'
+                isWhite ? 'text-white' : 'text-[#2D2523]'
               }`}
             >
-              DIVINE <span className={isWhite ? 'text-amber-300' : 'text-[#1B4332]'}>FOODS</span>
+              DIVINE <span className={isWhite ? 'text-amber-300' : 'text-[#2D1F1E]'}>FOODS</span>
             </span>
           </div>
           {variant === 'full' && (
             <span
               className={`font-['Noto_Sans_Gujarati',sans-serif] font-medium tracking-wide ${tagSizes[size]} ${
-                isWhite ? 'text-amber-200/90' : 'text-[#D97706]'
+                isWhite ? 'text-amber-200/90' : 'text-[#F47B20]'
               }`}
             >
               {BRAND_INFO.taglineGujarati}

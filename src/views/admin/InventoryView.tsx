@@ -126,10 +126,10 @@ export const InventoryView: React.FC<InventoryViewProps> = ({ initialTab = 'stoc
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
             Central Warehouse
           </span>
-          <h1 className="text-2xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-0.5">
+          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
             Inventory & Stock Control
           </h1>
           <p className="text-xs text-stone-500 mt-1">
@@ -187,7 +187,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({ initialTab = 'stoc
               onClick={() => setActiveTab('stock')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeTab === 'stock'
-                  ? 'bg-[#1B4332] text-white shadow-xs'
+                  ? 'bg-[#2D1F1E] text-white shadow-xs'
                   : 'text-stone-600 hover:bg-stone-100'
               }`}
             >
@@ -197,7 +197,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({ initialTab = 'stoc
               onClick={() => setActiveTab('movements')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeTab === 'movements'
-                  ? 'bg-[#1B4332] text-white shadow-xs'
+                  ? 'bg-[#2D1F1E] text-white shadow-xs'
                   : 'text-stone-600 hover:bg-stone-100'
               }`}
             >
@@ -213,7 +213,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({ initialTab = 'stoc
                 placeholder="Search products or movements..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full pl-9 pr-3 py-1.5 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#1B4332]/30"
+                className="w-full pl-9 pr-3 py-1.5 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
               />
             </div>
 
@@ -239,7 +239,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({ initialTab = 'stoc
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="border-b border-stone-200 bg-[#FBF9F5]/70 text-stone-500 font-semibold uppercase tracking-wider">
+                <tr className="border-b border-stone-200 bg-[#FFF9F0]/70 text-stone-500 font-semibold uppercase tracking-wider">
                   <th className="py-3 px-4">Product</th>
                   <th className="py-3 px-4">SKU</th>
                   <th className="py-3 px-4">Category</th>
@@ -274,7 +274,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({ initialTab = 'stoc
                       <td className="py-3.5 px-4 text-right font-mono text-stone-600">
                         {formatINR(costVal)}
                       </td>
-                      <td className="py-3.5 px-4 text-right font-mono font-bold text-[#1B4332]">
+                      <td className="py-3.5 px-4 text-right font-mono font-bold text-[#2D1F1E]">
                         {formatINR(sellingVal)}
                       </td>
                       <td className="py-3.5 px-4">
@@ -284,7 +284,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({ initialTab = 'stoc
                         <button
                           type="button"
                           onClick={() => handleOpenAdjust(prod)}
-                          className="text-xs font-semibold text-[#1B4332] hover:underline"
+                          className="text-xs font-semibold text-[#2D1F1E] hover:underline"
                         >
                           Adjust
                         </button>
@@ -300,7 +300,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({ initialTab = 'stoc
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="border-b border-stone-200 bg-[#FBF9F5]/70 text-stone-500 font-semibold uppercase tracking-wider">
+                <tr className="border-b border-stone-200 bg-[#FFF9F0]/70 text-stone-500 font-semibold uppercase tracking-wider">
                   <th className="py-3 px-4">Date & Time</th>
                   <th className="py-3 px-4">Product / SKU</th>
                   <th className="py-3 px-4">Movement Type</th>
@@ -366,7 +366,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({ initialTab = 'stoc
             <select
               value={adjustProductId}
               onChange={e => setAdjustProductId(e.target.value)}
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             >
               {products.map(p => (
                 <option key={p.id} value={p.id}>
@@ -382,7 +382,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({ initialTab = 'stoc
               <select
                 value={adjustType}
                 onChange={e => setAdjustType(e.target.value as any)}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               >
                 <option value="ADD">Add to Stock (+)</option>
                 <option value="REMOVE">Deduct from Stock (-)</option>
@@ -396,7 +396,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({ initialTab = 'stoc
                 required
                 value={adjustQty}
                 onChange={e => setAdjustQty(Math.max(1, Number(e.target.value)))}
-                className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
               />
             </div>
           </div>
@@ -409,7 +409,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({ initialTab = 'stoc
               value={adjustReason}
               onChange={e => setAdjustReason(e.target.value)}
               placeholder="e.g. Broken packaging write-off, physical count reconciliation..."
-              className="w-full px-3.5 py-2 text-xs bg-[#FBF9F5] border border-stone-200 rounded-xl focus:outline-hidden"
+              className="w-full px-3.5 py-2 text-xs bg-[#FFF9F0] border border-stone-200 rounded-xl focus:outline-hidden"
             />
           </div>
 
@@ -423,7 +423,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({ initialTab = 'stoc
             </button>
             <button
               type="submit"
-              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs"
+              className="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs"
             >
               Apply Stock Adjustment
             </button>

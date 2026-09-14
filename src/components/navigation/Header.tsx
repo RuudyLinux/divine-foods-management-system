@@ -86,13 +86,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileSidebar, onMenuToggl
         </button>
         <div>
           <div className="flex items-center gap-2 text-xs text-stone-400">
-            <span className="font-semibold text-[#1B4332]">Divine Foods</span>
+            <span className="font-semibold text-[#2D1F1E]">Divine Foods</span>
             <span className="text-stone-300">/</span>
             <span className="font-medium">{tabNames[activeTab || 'dashboard'] || 'Dashboard'}</span>
             <span className="hidden sm:inline text-stone-300">·</span>
             <span className="hidden sm:inline font-medium">{currentDateFormatted}</span>
           </div>
-          <h2 className="text-sm sm:text-base font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-0.5">
+          <h2 className="text-sm sm:text-base font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
             {role === 'ADMIN' ? (
               <span>{tabNames[activeTab || 'dashboard'] || 'Business Management System'}</span>
             ) : (
@@ -128,7 +128,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileSidebar, onMenuToggl
 
         {/* Signed-in role. Changing role means signing in as that account. */}
         <div
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-[#1B4332]/20 bg-[#1B4332]/5 text-[#1B4332]"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-[#2D1F1E]/20 bg-[#2D1F1E]/5 text-[#2D1F1E]"
           title="Your role comes from the account you signed in with"
         >
           <ShieldCheck className="w-3.5 h-3.5" />
@@ -155,7 +155,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileSidebar, onMenuToggl
           {showNotifMenu && (
             <div className="absolute right-0 mt-2 w-80 dropdown-menu p-3 z-50">
               <div className="flex items-center justify-between pb-2.5 border-b border-stone-100">
-                <span className="text-xs font-bold text-[#2C1810]">Alerts & Stock Warnings</span>
+                <span className="text-xs font-bold text-[#2D2523]">Alerts & Stock Warnings</span>
                 <span className="text-[10px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-bold">
                   {lowStockProducts.length} low
                 </span>

@@ -78,17 +78,17 @@ export const ReportsView: React.FC = () => {
     {
       name: 'UPI / QR',
       value: sales.filter(s => s.payment_method === 'UPI').reduce((sum, s) => sum + s.total_amount, 0),
-      color: '#1B4332',
+      color: '#2D1F1E',
     },
     {
       name: 'Cash',
       value: sales.filter(s => s.payment_method === 'CASH').reduce((sum, s) => sum + s.total_amount, 0),
-      color: '#D97706',
+      color: '#F47B20',
     },
     {
       name: 'Card',
       value: sales.filter(s => s.payment_method === 'CARD').reduce((sum, s) => sum + s.total_amount, 0),
-      color: '#2D6A4F',
+      color: '#4A3634',
     },
   ];
 
@@ -123,10 +123,10 @@ export const ReportsView: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#2D1F1E]">
             Business Intelligence & Financials
           </span>
-          <h1 className="text-2xl font-bold text-[#2C1810] font-['Outfit',sans-serif] mt-0.5">
+          <h1 className="text-2xl font-bold text-[#2D2523] font-['Outfit',sans-serif] mt-0.5">
             Reports & Analytics
           </h1>
           <p className="text-xs text-stone-500 mt-1">
@@ -135,7 +135,7 @@ export const ReportsView: React.FC = () => {
         </div>
         <button
           onClick={handleExportPnL}
-          className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors cursor-pointer"
         >
           <Download className="w-3.5 h-3.5" />
           <span>Export P&L Report</span>
@@ -156,7 +156,7 @@ export const ReportsView: React.FC = () => {
             onClick={() => setActiveTab(tab.id as any)}
             className={`px-4 py-2 rounded-xl transition-all whitespace-nowrap cursor-pointer ${
               activeTab === tab.id
-                ? 'bg-[#1B4332] text-white shadow-xs'
+                ? 'bg-[#2D1F1E] text-white shadow-xs'
                 : 'text-stone-600 hover:bg-stone-100'
             }`}
           >
@@ -205,7 +205,7 @@ export const ReportsView: React.FC = () => {
           <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs p-6 space-y-4">
             <div className="flex items-center justify-between border-b border-stone-200 pb-3">
               <div>
-                <h3 className="text-base font-bold text-[#2C1810] font-['Outfit',sans-serif]">
+                <h3 className="text-base font-bold text-[#2D2523] font-['Outfit',sans-serif]">
                   Divine Foods Financial Statement (YTD)
                 </h3>
                 <p className="text-xs text-stone-500">
@@ -237,13 +237,13 @@ export const ReportsView: React.FC = () => {
                   ({formatINR(totalOperatingExpenses)})
                 </span>
               </div>
-              <div className="py-4 flex justify-between font-extrabold text-base text-[#1B4332] bg-[#1B4332]/5 px-3 rounded-xl border border-[#1B4332]/20">
+              <div className="py-4 flex justify-between font-extrabold text-base text-[#2D1F1E] bg-[#2D1F1E]/5 px-3 rounded-xl border border-[#2D1F1E]/20">
                 <span>Net Business Profit (Gross Profit - C)</span>
                 <span className="font-mono">{formatINR(netProfit)}</span>
               </div>
               <div className="py-2.5 flex justify-between text-stone-600 font-bold px-3">
                 <span>Net Profit Margin</span>
-                <span className="text-[#1B4332]">{netMargin.toFixed(2)}%</span>
+                <span className="text-[#2D1F1E]">{netMargin.toFixed(2)}%</span>
               </div>
             </div>
           </div>
@@ -255,7 +255,7 @@ export const ReportsView: React.FC = () => {
         <div className="space-y-6">
           <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs overflow-hidden">
             <div className="p-4 border-b border-stone-100 flex items-center justify-between">
-              <h3 className="text-sm font-bold text-[#2C1810]">
+              <h3 className="text-sm font-bold text-[#2D2523]">
                 Exhibition Stalls Performance Ranking
               </h3>
               <span className="text-xs text-stone-500 font-medium">Ranked by Net Contribution</span>
@@ -264,7 +264,7 @@ export const ReportsView: React.FC = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-stone-200 bg-[#FBF9F5]/70 text-stone-500 font-semibold uppercase">
+                  <tr className="border-b border-stone-200 bg-[#FFF9F0]/70 text-stone-500 font-semibold uppercase">
                     <th className="py-3 px-4">Rank & Venue</th>
                     <th className="py-3 px-4 text-right">Sales Turnover</th>
                     <th className="py-3 px-4 text-right">COGS</th>
@@ -279,7 +279,7 @@ export const ReportsView: React.FC = () => {
                     <tr key={exh.id} className="hover:bg-stone-50/70 transition-colors">
                       <td className="py-3.5 px-4 font-bold text-stone-900">
                         <div className="flex items-center gap-2.5">
-                          <span className="w-5 h-5 rounded-full bg-[#1B4332]/10 text-[#1B4332] text-[10px] font-bold flex items-center justify-center">
+                          <span className="w-5 h-5 rounded-full bg-[#2D1F1E]/10 text-[#2D1F1E] text-[10px] font-bold flex items-center justify-center">
                             #{idx + 1}
                           </span>
                           <div>
@@ -305,7 +305,7 @@ export const ReportsView: React.FC = () => {
                       <td className="py-3.5 px-4 text-right font-extrabold text-emerald-800 font-mono text-sm">
                         {formatINR(exh.netProfit)}
                       </td>
-                      <td className="py-3.5 px-4 text-right font-bold text-[#1B4332]">
+                      <td className="py-3.5 px-4 text-right font-bold text-[#2D1F1E]">
                         {exh.netMargin.toFixed(1)}%
                       </td>
                     </tr>
@@ -321,7 +321,7 @@ export const ReportsView: React.FC = () => {
       {activeTab === 'sales' && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs">
-            <h3 className="text-base font-bold text-[#2C1810] mb-1">Payment Method Share</h3>
+            <h3 className="text-base font-bold text-[#2D2523] mb-1">Payment Method Share</h3>
             <p className="text-xs text-stone-500 mb-4">Split between UPI, Cash, and Card POS</p>
 
             <div className="h-56 w-full">
@@ -357,7 +357,7 @@ export const ReportsView: React.FC = () => {
 
           <div className="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs flex flex-col justify-between">
             <div>
-              <h3 className="text-base font-bold text-[#2C1810] mb-1">
+              <h3 className="text-base font-bold text-[#2D2523] mb-1">
                 Transaction Volume by Channel
               </h3>
               <p className="text-xs text-stone-500 mb-4">POS counters and direct sales</p>
@@ -368,7 +368,7 @@ export const ReportsView: React.FC = () => {
                 </div>
                 <div className="p-3 bg-stone-50 rounded-xl border border-stone-100 flex justify-between items-center text-xs">
                   <span className="font-semibold text-stone-800">Average Order Value (AOV)</span>
-                  <span className="font-bold text-[#1B4332] font-mono">
+                  <span className="font-bold text-[#2D1F1E] font-mono">
                     {formatINR(sales.length > 0 ? Math.round(totalRevenue / sales.length) : 0)}
                   </span>
                 </div>
@@ -387,7 +387,7 @@ export const ReportsView: React.FC = () => {
       {/* Tab 4: Production Costing */}
       {activeTab === 'production' && (
         <div className="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs space-y-4">
-          <h3 className="text-base font-bold text-[#2C1810]">Production Batch Cost Summary</h3>
+          <h3 className="text-base font-bold text-[#2D2523]">Production Batch Cost Summary</h3>
           <p className="text-xs text-stone-500">
             Total production output across factory batches
           </p>
@@ -395,7 +395,7 @@ export const ReportsView: React.FC = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="border-b border-stone-200 bg-[#FBF9F5] text-stone-500 font-semibold uppercase">
+                <tr className="border-b border-stone-200 bg-[#FFF9F0] text-stone-500 font-semibold uppercase">
                   <th className="py-2.5 px-3">Batch No</th>
                   <th className="py-2.5 px-3">Production Date</th>
                   <th className="py-2.5 px-3 text-center">Batch Quantity</th>
@@ -406,7 +406,7 @@ export const ReportsView: React.FC = () => {
               <tbody className="divide-y divide-stone-100">
                 {batches.map(b => (
                   <tr key={b.id} className="hover:bg-stone-50">
-                    <td className="py-2.5 px-3 font-mono font-bold text-[#1B4332]">{b.batch_no}</td>
+                    <td className="py-2.5 px-3 font-mono font-bold text-[#2D1F1E]">{b.batch_no}</td>
                     <td className="py-2.5 px-3 text-stone-600">{formatDate(b.production_date)}</td>
                     <td className="py-2.5 px-3 text-center font-bold">{b.total_quantity} units</td>
                     <td className="py-2.5 px-3 text-right font-mono font-bold">{formatINR(b.total_cost)}</td>
@@ -424,11 +424,11 @@ export const ReportsView: React.FC = () => {
       {/* Tab 5: Inventory Valuation */}
       {activeTab === 'inventory' && (
         <div className="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs space-y-4">
-          <h3 className="text-base font-bold text-[#2C1810]">Stock Valuation & Inventory Health</h3>
+          <h3 className="text-base font-bold text-[#2D2523]">Stock Valuation & Inventory Health</h3>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="border-b border-stone-200 bg-[#FBF9F5] text-stone-500 font-semibold uppercase">
+                <tr className="border-b border-stone-200 bg-[#FFF9F0] text-stone-500 font-semibold uppercase">
                   <th className="py-2.5 px-3">Product Name</th>
                   <th className="py-2.5 px-3">SKU</th>
                   <th className="py-2.5 px-3 text-center">Current Stock</th>
@@ -447,7 +447,7 @@ export const ReportsView: React.FC = () => {
                     <td className="py-2.5 px-3 text-right font-mono text-stone-600">
                       {formatINR(p.default_selling_price)}
                     </td>
-                    <td className="py-2.5 px-3 text-right font-mono font-bold text-[#1B4332]">
+                    <td className="py-2.5 px-3 text-right font-mono font-bold text-[#2D1F1E]">
                       {formatINR(p.current_stock * p.default_selling_price)}
                     </td>
                   </tr>

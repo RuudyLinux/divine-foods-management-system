@@ -68,7 +68,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({ isOpen, onClose, sal
             <button
               type="button"
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#1B4332] hover:bg-[#143823] shadow-xs transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#2D1F1E] hover:bg-[#1F1514] shadow-xs transition-colors"
             >
               <Printer className="w-3.5 h-3.5" />
               Print Receipt
@@ -81,7 +81,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({ isOpen, onClose, sal
       <div
         ref={printRef}
         id="printable-invoice"
-        className="p-4 sm:p-6 bg-white rounded-xl border border-stone-200 text-[#2C1810]"
+        className="p-4 sm:p-6 bg-white rounded-xl border border-stone-200 text-[#2D2523]"
       >
         {/* Header with Divine Foods Logo and Company details */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-stone-200 pb-5 gap-4">
@@ -91,7 +91,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({ isOpen, onClose, sal
             {contactLine && <p className="text-xs text-stone-500">{contactLine}</p>}
           </div>
           <div className="text-left sm:text-right">
-            <span className="inline-block bg-[#1B4332]/10 text-[#1B4332] font-mono font-bold text-sm px-2.5 py-1 rounded">
+            <span className="inline-block bg-[#2D1F1E]/10 text-[#2D1F1E] font-mono font-bold text-sm px-2.5 py-1 rounded">
               {sale.invoice_no}
             </span>
             <p className="text-xs text-stone-500 mt-1.5">
@@ -110,7 +110,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({ isOpen, onClose, sal
             <span className="font-semibold text-stone-400 uppercase tracking-wider block mb-1">
               Billed To
             </span>
-            <p className="font-bold text-sm text-[#2C1810]">
+            <p className="font-bold text-sm text-[#2D2523]">
               {sale.customer_name || 'Walk-in Customer'}
             </p>
             {sale.customer_mobile && (
@@ -122,7 +122,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({ isOpen, onClose, sal
             <span className="font-semibold text-stone-400 uppercase tracking-wider block mb-1">
               Exhibition Location
             </span>
-            <p className="font-bold text-sm text-[#1B4332]">
+            <p className="font-bold text-sm text-[#2D1F1E]">
               {sale.exhibition_name || 'Vadodara Exhibition'}
             </p>
             <p className="text-stone-600">Brahman Sabha Hall, Vadodara</p>
@@ -192,9 +192,9 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({ isOpen, onClose, sal
                 <span className="font-medium">- {formatINR(sale.discount)}</span>
               </div>
             )}
-            <div className="flex justify-between w-48 text-sm font-bold text-[#2C1810] border-t border-stone-200 pt-2 mt-1">
+            <div className="flex justify-between w-48 text-sm font-bold text-[#2D2523] border-t border-stone-200 pt-2 mt-1">
               <span>Total Paid:</span>
-              <span className="text-[#1B4332] font-['Outfit',sans-serif] text-base">
+              <span className="text-[#2D1F1E] font-['Outfit',sans-serif] text-base">
                 {formatINR(sale.total_amount)}
               </span>
             </div>
@@ -203,7 +203,7 @@ export const InvoiceModal: React.FC<InvoiceModalProps> = ({ isOpen, onClose, sal
 
         {/* Footer Note */}
         <div className="mt-6 pt-4 border-t border-dashed border-stone-200 text-center text-[11px] text-stone-500">
-          <p className="font-['Noto_Sans_Gujarati',sans-serif] text-xs font-semibold text-[#1B4332]">
+          <p className="font-['Noto_Sans_Gujarati',sans-serif] text-xs font-semibold text-[#2D1F1E]">
             {BRAND_INFO.taglineGujarati}
           </p>
           <p className="mt-0.5">{company.invoice_footer_note}</p>
