@@ -8,6 +8,24 @@ React 19 + TypeScript + Vite + Tailwind CSS 4.
 
 ---
 
+## Deployment status
+
+**This version is a single-device / local-storage deployment.**
+
+Suitable for: one computer or one tablet, used by one stall or one office at a
+time, and for client demonstration.
+
+**Not suitable for** shared inventory or shared sales across several devices.
+Each device keeps its own separate records — see the next section, which is the
+most important thing to understand about this release.
+
+Multi-device operation needs a backend database (Supabase or similar). That is
+a deliberate future step, to be taken once the client confirms they need
+several people working at once; it would also move authentication to the
+server.
+
+---
+
 ## Where the data lives — read this first
 
 **All data is stored in the browser it was entered in** (`localStorage`, under
