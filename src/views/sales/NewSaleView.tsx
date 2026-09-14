@@ -232,6 +232,12 @@ export const NewSaleView: React.FC<NewSaleViewProps> = ({ onSaleComplete }) => {
 
   return (
     <div className="h-[calc(100vh-8.5rem)] flex flex-col lg:flex-row gap-5 animate-in fade-in duration-150">
+      {/*
+        The till needs its full height, and the breadcrumb above already names
+        the screen, so the heading is available to assistive technology without
+        taking a band of the layout.
+      */}
+      <h1 className="sr-only">New Sale (POS)</h1>
       {/* Left: Product Catalog & Fast Grid */}
       <div className="flex-1 flex flex-col bg-white rounded-2xl border border-stone-200/80 shadow-xs overflow-hidden">
         {/* Top POS Context Bar */}

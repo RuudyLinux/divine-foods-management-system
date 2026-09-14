@@ -11,6 +11,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { db } from '../../lib/db';
+import { Pagination } from '../../components/common/Pagination';
 import { Sale, Exhibition, PaymentMethod } from '../../types';
 import { formatINR, formatDateTime, formatDate } from '../../lib/brand';
 import { InvoiceModal } from '../../components/common/InvoiceModal';
@@ -28,6 +29,10 @@ export const SalesHistoryView: React.FC = () => {
   const [dateFilter, setDateFilter] = useState('ALL'); // ALL, TODAY, THIS_WEEK, THIS_MONTH
 
   const [selectedSaleForInvoice, setSelectedSaleForInvoice] = useState<Sale | null>(null);
+
+  // The ledger only grows, so it is shown a page at a time.
+  const PAGE_SIZE = 25;
+  const [page, setPage] = useState(1);
 
   const handleExportCSV = () => {
     const headers = [
@@ -95,6 +100,15 @@ export const SalesHistoryView: React.FC = () => {
     return matchesSearch && matchesExh && matchesPayment && matchesDate;
   });
 
+  // Any filter change puts the reader back on the first page, otherwise a
+  // narrower result set can leave them stranded past the end.
+  const pageCount = Math.max(1, Math.ceil(filteredSales.length / PAGE_SIZE));
+  const currentPage = Math.min(page, pageCount);
+  const visibleSales = filteredSales.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE
+  );
+
   const totalSalesRevenue = filteredSales.reduce((s, item) => s + item.total_amount, 0);
   const totalGrossProfit = filteredSales.reduce((s, item) => s + item.gross_profit, 0);
 
@@ -110,7 +124,7 @@ export const SalesHistoryView: React.FC = () => {
           <div className="flex items-center gap-2">
           <button
           onClick={handleExportCSV}
-          className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-stone-700 bg-stone-100 hover:bg-stone-200 transition-colors cursor-pointer"
+          className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-[10px] border border-[#E8DED2] bg-[#F7F0E5] text-[#2D1F1E] text-[13px] font-semibold leading-none transition-colors hover:bg-[#EFE4D5] focus-ring disabled:cursor-not-allowed disabled:opacity-55"
           >
           <Download className="w-3.5 h-3.5" />
           <span>Export CSV</span>
@@ -152,7 +166,7 @@ export const SalesHistoryView: React.FC = () => {
               type="text"
               placeholder="Search Invoice #, Customer Name, or Phone..."
               value={search}
-              onChange={e => setSearch(e.target.value)}
+              onChange={e => { setSearch(e.target.value); setPage(1); }}
               className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
             />
           </div>
@@ -160,7 +174,7 @@ export const SalesHistoryView: React.FC = () => {
           <div className="flex flex-wrap items-center gap-2">
             <select
               value={dateFilter}
-              onChange={e => setDateFilter(e.target.value)}
+              onChange={e => { setDateFilter(e.target.value); setPage(1); }}
               className="text-xs py-1.5 px-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-700 font-medium focus:outline-hidden"
             >
               <option value="ALL">All Dates</option>
@@ -170,7 +184,7 @@ export const SalesHistoryView: React.FC = () => {
 
             <select
               value={exhibitionFilter}
-              onChange={e => setExhibitionFilter(e.target.value)}
+              onChange={e => { setExhibitionFilter(e.target.value); setPage(1); }}
               className="text-xs py-1.5 px-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-700 font-medium focus:outline-hidden"
             >
               <option value="ALL">All Venues</option>
@@ -183,7 +197,7 @@ export const SalesHistoryView: React.FC = () => {
 
             <select
               value={paymentFilter}
-              onChange={e => setPaymentFilter(e.target.value)}
+              onChange={e => { setPaymentFilter(e.target.value); setPage(1); }}
               className="text-xs py-1.5 px-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-700 font-medium focus:outline-hidden"
             >
               <option value="ALL">All Payment Methods</option>
@@ -213,7 +227,7 @@ export const SalesHistoryView: React.FC = () => {
             </thead>
             <tbody className="divide-y divide-stone-100">
               {filteredSales.length > 0 ? (
-                filteredSales.map(sale => {
+                visibleSales.map(sale => {
                   const exh = exhibitions.find(e => e.id === sale.exhibition_id);
                   return (
                     <tr key={sale.id} className="hover:bg-stone-50/70 transition-colors">
@@ -273,6 +287,18 @@ export const SalesHistoryView: React.FC = () => {
             </tbody>
           </table>
         </div>
+
+        {filteredSales.length > 0 && (
+          <div className="border-t border-[#E8DED2] px-4 py-3">
+            <Pagination
+              page={currentPage}
+              pageSize={PAGE_SIZE}
+              totalItems={filteredSales.length}
+              onPageChange={setPage}
+              itemLabel="invoices"
+            />
+          </div>
+        )}
       </div>
 
       {/* Invoice Modal */}

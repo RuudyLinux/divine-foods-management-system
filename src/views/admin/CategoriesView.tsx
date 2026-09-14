@@ -8,6 +8,8 @@ import { Modal } from '../../components/common/Modal';
 import { PageHeader } from '../../components/common/PageHeader';
 import { Button } from '../../components/common/Button';
 import { IconButton } from '../../components/common/IconButton';
+import { DataTable, DataTableRow } from '../../components/common/DataTable';
+import { EmptyState } from '../../components/common/EmptyState';
 import { ConfirmationDialog } from '../../components/common/ConfirmationDialog';
 import { useToast } from '../../components/common/Toast';
 
@@ -119,44 +121,58 @@ export const CategoriesView: React.FC = () => {
         }
       />
 
-      {/* Table Container */}
-      <div className="bg-white rounded-2xl border border-stone-200/80 shadow-xs overflow-hidden">
-        {/* Search Toolbar */}
-        <div className="p-4 border-b border-stone-100 flex items-center justify-between gap-4">
-          <div className="relative max-w-sm w-full">
-            <Search className="w-4 h-4 text-stone-400 absolute left-3 top-2.5" />
-            <input
-              type="text"
-              placeholder="Search category name or description..."
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#2D1F1E]/30"
-            />
+      <DataTable
+        caption="Product categories"
+        columns={[
+          { header: 'Category' },
+          { header: 'Description' },
+          { header: 'Products', align: 'center' },
+          { header: 'Status' },
+          { header: 'Created Date' },
+          { header: 'Actions', align: 'right' },
+        ]}
+        isEmpty={filteredCategories.length === 0}
+        empty={
+          <EmptyState
+            icon={Layers}
+            title={search ? 'No categories match your search' : 'No categories yet'}
+            description={
+              search
+                ? 'Try a different name or clear the search.'
+                : 'Categories group your product lines. Create the first one to get started.'
+            }
+            action={
+              !search && (
+                <Button onClick={handleOpenAdd} leadingIcon={<Plus className="w-4 h-4" />}>
+                  Add Category
+                </Button>
+              )
+            }
+          />
+        }
+        toolbar={
+          <div className="flex items-center justify-between gap-4">
+            <div className="relative w-full max-w-sm">
+              <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#9A8F88]" />
+              <input
+                type="text"
+                aria-label="Search categories"
+                placeholder="Search category name or description..."
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                className="input-field pl-9"
+              />
+            </div>
+            <span className="shrink-0 text-xs font-medium text-[#756B66]">
+              {filteredCategories.length} total
+            </span>
           </div>
-          <span className="text-xs text-stone-500 font-medium">
-            {filteredCategories.length} Categories total
-          </span>
-        </div>
-
-        {/* Categories Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs">
-            <thead>
-              <tr className="border-b border-stone-200 bg-[#FFF9F0]/70 text-stone-500 font-semibold uppercase tracking-wider">
-                <th className="py-3 px-4">Category</th>
-                <th className="py-3 px-4">Description</th>
-                <th className="py-3 px-4 text-center">Products</th>
-                <th className="py-3 px-4">Status</th>
-                <th className="py-3 px-4">Created Date</th>
-                <th className="py-3 px-4 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-stone-100">
-              {filteredCategories.length > 0 ? (
-                filteredCategories.map(cat => {
+        }
+      >
+        {filteredCategories.map(cat => {
                   const productCount = products.filter(p => p.category_id === cat.id).length;
                   return (
-                    <tr key={cat.id} className="hover:bg-stone-50/70 transition-colors">
+          <DataTableRow key={cat.id}>
                       <td className="py-3.5 px-4">
                         <div className="flex items-center gap-3">
                           {cat.image_url ? (
@@ -225,20 +241,10 @@ export const CategoriesView: React.FC = () => {
                           </IconButton>
                         </div>
                       </td>
-                    </tr>
-                  );
-                })
-              ) : (
-                <tr>
-                  <td colSpan={6} className="py-12 text-center text-stone-400">
-                    No categories found. Click "Add Category" to create one.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-      </div>
+          </DataTableRow>
+          );
+        })}
+      </DataTable>
 
       {/* Add / Edit Category Modal */}
       <Modal
