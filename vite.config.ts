@@ -72,6 +72,18 @@ export default defineConfig(() => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    build: {
+      rollupOptions: {
+        output: {
+          // Charts and the React runtime change far less often than the app
+          // itself, so keeping them in their own files lets a returning
+          // browser reuse them across deployments.
+          manualChunks: {
+            charts: ['recharts'],
+          },
+        },
+      },
+    },
     server: {
       port: process.env.PORT ? parseInt(process.env.PORT) : 3000,
       host: '0.0.0.0',

@@ -83,7 +83,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return { success: false, message: 'Please enter your email or mobile number and password.' };
     }
 
-    await db.ensureInitialCredentials();
     const matched = await db.verifyCredentials(emailOrMobile, password);
 
     // The same message for an unknown account and a wrong password, so the

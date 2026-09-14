@@ -110,8 +110,11 @@ export function describePasswordProblem(password: string): string | null {
   return null;
 }
 
-/**
- * The password a freshly installed system starts with. It must be changed at
- * first sign-in, which the login flow enforces.
+/*
+ * There is deliberately no default password here.
+ *
+ * Everything in this file ships to the browser, so any credential written into
+ * it can be read by anyone who opens the deployed bundle. A new installation
+ * instead starts with no usable credentials, and the first visitor is asked to
+ * create the administrator password (see db.needsFirstRunSetup).
  */
-export const INITIAL_ADMIN_PASSWORD = 'DivineSetup2026';

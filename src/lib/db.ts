@@ -14,7 +14,7 @@ import {
   User,
   PaymentMethod,
 } from '../types';
-import { hashPassword, verifyPassword, INITIAL_ADMIN_PASSWORD } from './auth';
+import { hashPassword, verifyPassword } from './auth';
 
 const STORAGE_KEY = 'divine_foods_db_v1';
 
@@ -1458,21 +1458,38 @@ class DatabaseService {
   // ===================== CREDENTIALS =====================
 
   /**
-   * Gives every account without stored credentials the initial setup password,
-   * flagged so it must be changed at first sign-in. Runs once per load; a new
-   * install would otherwise have no way to sign in at all.
+   * True while no account can be signed into yet, which is the state of a
+   * brand new installation. The app shows the first-run setup screen instead
+   * of the sign-in form until an administrator password has been created.
    */
-  public async ensureInitialCredentials(): Promise<void> {
-    const needsSetup = this.state.users.filter(u => !u.password_hash && !u.password);
-    if (needsSetup.length === 0) return;
+  public needsFirstRunSetup(): boolean {
+    return !this.state.users.some(u => u.password_hash || u.password);
+  }
 
-    for (const user of needsSetup) {
-      const record = await hashPassword(INITIAL_ADMIN_PASSWORD);
-      user.password_hash = record.password_hash;
-      user.password_salt = record.password_salt;
-      user.must_change_password = true;
+  /** The account the first-run setup screen will set a password for. */
+  public getFirstRunAdmin(): User | null {
+    const admin =
+      this.state.users.find(u => (u.role || '').toUpperCase() === 'ADMIN' && u.is_active) ||
+      this.state.users.find(u => (u.role || '').toUpperCase() === 'ADMIN');
+    if (!admin) return null;
+    const { password, password_hash, password_salt, ...safe } = admin;
+    return safe as User;
+  }
+
+  /**
+   * Creates the administrator password on a new installation. Refused once any
+   * account has credentials, so it cannot be used to take over a live system.
+   */
+  public async completeFirstRunSetup(password: string): Promise<User> {
+    if (!this.needsFirstRunSetup()) {
+      throw new Error('This system has already been set up.');
     }
-    this.saveToStorage();
+    const admin = this.state.users.find(u => (u.role || '').toUpperCase() === 'ADMIN');
+    if (!admin) throw new Error('No administrator account to set up.');
+
+    await this.setUserPassword(admin.id, password);
+    const { password: _p, password_hash: _h, password_salt: _s, ...safe } = admin;
+    return safe as User;
   }
 
   /** Sets (or resets) an account password and clears the change requirement. */

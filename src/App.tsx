@@ -4,6 +4,7 @@ import { ToastProvider } from './components/common/Toast';
 import { Sidebar } from './components/navigation/Sidebar';
 import { Header } from './components/navigation/Header';
 import { LoginView } from './views/LoginView';
+import { FirstRunSetupView } from './views/FirstRunSetupView';
 import { ChangePasswordView } from './views/ChangePasswordView';
 
 // Admin Views
@@ -28,6 +29,7 @@ import { ReportsView } from './views/reports/ReportsView';
 import { ExhibitionUserDashboard } from './views/exhibition_user/ExhibitionUserDashboard';
 import { InvoiceModal } from './components/common/InvoiceModal';
 import { Sale } from './types';
+import { db } from './lib/db';
 
 const AppContent: React.FC = () => {
   const { user, role, isAdmin, isExhibitionUser, mustChangePassword, logout } = useAuth();
@@ -36,6 +38,13 @@ const AppContent: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('dashboard');
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [selectedInvoice, setSelectedInvoice] = useState<Sale | null>(null);
+  const [needsSetup, setNeedsSetup] = useState(() => db.needsFirstRunSetup());
+
+  // A brand new installation carries no password at all, so the first thing
+  // anyone sees is the screen that creates the administrator password.
+  if (needsSetup) {
+    return <FirstRunSetupView onComplete={() => setNeedsSetup(false)} />;
+  }
 
   if (!user) {
     return <LoginView />;
